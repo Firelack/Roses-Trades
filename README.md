@@ -15,6 +15,10 @@ The system is inspired by the trading mechanics of the game Wolvesville.
 
 - Features are in progress
 
+## ☑️ Installation
+
+This mod is still in development and is not yet available for installation.  
+
 ## 📦 Requirements
 
 - [Java 21](https://adoptium.net/) (required for Minecraft 1.21+)  
@@ -50,10 +54,6 @@ The system is inspired by the trading mechanics of the game Wolvesville.
   - A unique set of very expensive cosmetics, synchronized across your worlds.  
   - Ability to add your own cosmetics to your games and servers.  
   - Achievements and rewards tied to rose collection.  
-
-## 🚀 Installation
-
-This mod is still in development and is not yet available for installation.  
 
 ## 🛣️ Detailed Roadmap
 
