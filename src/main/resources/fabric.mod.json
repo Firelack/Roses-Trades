@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "roses-trades",
+	"version": "${version}",
+	"name": "Roses Trades",
+	"description": "A mod to add roses trades between players, inspired by Wolvesville's trade system.",
+	"authors": [
+		"Firelack"
+	],
+	"contact": {
+		"homepage": "https://github.com/Firelack/Roses-Trades.git",
+		"sources": "https://github.com/Firelack/Roses-Trades.git"
+	},
+	"icon": "assets/roses-trades/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"firelack.rosestrades.RosesTrades"
+		],
+		"fabric-datagen": [
+			"firelack.rosestrades.RosesTradesDataGenerator"
+		]
+	},
+	"mixins": [
+		"roses-trades.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
