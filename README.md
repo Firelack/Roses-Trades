@@ -75,7 +75,8 @@ This mod is still in development and is not yet available for installation.
 - [ ] Create a custom GUI screen accessible via a keybind or button.  
 - [ ] Display the rose counter.  
 - [ ] Button to **spawn a physical rose** (added to the inventory a "Rose").  
-- [ ] Add item and crafting recipe for **bouquets** (decorative item).  
+- [x] Add item and crafting recipe for **bouquets** (decorative item).
+- [ ] Add block for decorative bouquets.
 - [ ] Tabs: Shop / Cosmetics Inventory.  
 
 ### 🛒 Cosmetics Shop
