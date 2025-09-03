@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "roses-trades",
+	"id": "rosestrades",
 	"version": "${version}",
 	"name": "Roses Trades",
 	"description": "A mod to add roses trades between players, inspired by Wolvesville's trade system.",
@@ -11,7 +11,7 @@
 		"homepage": "https://github.com/Firelack/Roses-Trades.git",
 		"sources": "https://github.com/Firelack/Roses-Trades.git"
 	},
-	"icon": "assets/roses-trades/icon.png",
+	"icon": "assets/rosestrades/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -22,7 +22,7 @@
 		]
 	},
 	"mixins": [
-		"roses-trades.mixins.json"
+		"rosestrades.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.17.2",

@@ -6,7 +6,7 @@
 ## 📖 Description
 
 **Roses Trades** is a Minecraft mod focused on collecting and trading roses to unlock unique cosmetics.  
-The system is inspired by the trading mechanics of the game Wolvesville.
+The system is inspired by the trading mechanics of the game [Wolvesville](https://www.wolvesville.com/).
 
 > **Note:** At the moment, this repository only contains the base Fabric template.  
 > Features will be added in future commits.
@@ -59,9 +59,9 @@ This mod is still in development and is not yet available for installation.
 
 ### 🌱 Rose Generation & Harvesting
 
-- [ ] Create a new "Special Rose" item (non-stackable or limited stack).  
-- [ ] Add natural rose generation in certain biomes.  
-- [ ] Prevent roses from dropping as items → increment counter instead.  
+- [x] Create 2 new "Special Rose" and "Rose items.  
+- [ ] Add natural rose generation in biomes.  
+- [ ] Prevent "Special Rose" from dropping as items → increment counter instead.  
 - [ ] Implement a global rose counter tied to each player (persistent data).  
 
 ### 📊 Rose Counter
@@ -74,8 +74,8 @@ This mod is still in development and is not yet available for installation.
 
 - [ ] Create a custom GUI screen accessible via a keybind or button.  
 - [ ] Display the rose counter.  
-- [ ] Button to **spawn a physical rose** (added to the inventory).  
-- [ ] Crafting recipe for **bouquets** (decorative item).  
+- [ ] Button to **spawn a physical rose** (added to the inventory a "Rose").  
+- [ ] Add item and crafting recipe for **bouquets** (decorative item).  
 - [ ] Tabs: Shop / Cosmetics Inventory.  
 
 ### 🛒 Cosmetics Shop
@@ -110,4 +110,4 @@ This mod is still in development and is not yet available for installation.
 - [ ] Rare/seasonal cosmetics (e.g. Christmas, Halloween).  
 - [ ] Achievements and rewards tied to rose collection.  
 - [ ] Event system (special drops, limited-time cosmetics).  
-- [ ] Compatibility with other mods (Optifine, UI mods, etc).  
+- [ ] Compatibility with other mods (ModMenu, Optifine, UI mods, etc).  
