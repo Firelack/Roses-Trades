@@ -36,10 +36,31 @@ public class ModBlocks {
             new BlockItem(BOUQUET, new Item.Settings())
     );
 
+    // Declatation of the "bouquet" block
+    public static final Block ROSE = Registry.register(
+            Registries.BLOCK,
+            Identifier.of(RosesTrades.MOD_ID, "rose"),
+            new FlowerBlock(null, 0, AbstractBlock.Settings.copy(Blocks.POPPY))
+    );
+
+    public static final Block POTTED_ROSE = Registry.register(
+        Registries.BLOCK,
+        Identifier.of(RosesTrades.MOD_ID, "potted_rose"),
+        new FlowerPotBlock(ROSE, AbstractBlock.Settings.copy(Blocks.POTTED_POPPY))
+    );
+
+    // Declaration of the "bouquet" block item
+    public static final Item ROSE_ITEM = Registry.register(
+            Registries.ITEM,
+            Identifier.of(RosesTrades.MOD_ID, "rose"),
+            new BlockItem(ROSE, new Item.Settings())
+    );
+
     public static void registerModBlocks() {
         RosesTrades.LOGGER.info("Registering mod blocks for " + RosesTrades.MOD_ID);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
+            entries.add(ROSE);
             entries.add(BOUQUET);
         });
     }

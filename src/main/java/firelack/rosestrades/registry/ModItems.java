@@ -15,17 +15,10 @@ public class ModItems {
             new SpecialRoseItem(new Item.Settings().maxCount(64))
     );
 
-    public static final Item ROSE = Registry.register(
-            Registries.ITEM,
-            Identifier.of(RosesTrades.MOD_ID, "rose"),
-            new RoseItem(new Item.Settings().maxCount(64))
-    );
-
     public static void registerModItems() {
         RosesTrades.LOGGER.info("Registering mod items for " + RosesTrades.MOD_ID);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
-            entries.add(SPECIAL_ROSE);
-            entries.add(ROSE);        });
+            entries.add(SPECIAL_ROSE);});
     }
 }

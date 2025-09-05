@@ -14,5 +14,7 @@ public class RosesTradesClient implements ClientModInitializer {
         // On dit à Minecraft que le bouquet utilise du cutout (comme les fleurs vanilla)
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.BOUQUET, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_BOUQUET, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.ROSE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_ROSE, RenderLayer.getCutout());
     }
 }

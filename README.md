@@ -60,7 +60,8 @@ This mod is still in development and is not yet available for installation.
 ### 🌱 Rose Generation & Harvesting
 
 - [x] Create 2 new "Special Rose" and "Rose items.  
-- [ ] Add natural rose generation in biomes.  
+- [x] Add block and potted_rose for rose.
+- [ ] Add block and natural special_rose generation in biomes.  
 - [ ] Prevent "Special Rose" from dropping as items → increment counter instead.  
 - [ ] Implement a global rose counter tied to each player (persistent data).  
 
@@ -76,7 +77,7 @@ This mod is still in development and is not yet available for installation.
 - [ ] Display the rose counter.  
 - [ ] Button to **spawn a physical rose** (added to the inventory a "Rose").  
 - [x] Add item and crafting recipe for **bouquets** (decorative item).
-- [ ] Add block for decorative bouquets.
+- [x] Add block (and potted_bouquet) for decorative bouquets.
 - [ ] Tabs: Shop / Cosmetics Inventory.  
 
 ### 🛒 Cosmetics Shop
