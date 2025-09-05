@@ -17,6 +17,9 @@
 		"main": [
 			"firelack.rosestrades.RosesTrades"
 		],
+		"client": [
+			"firelack.rosestrades.RosesTradesClient"
+		],
 		"fabric-datagen": [
 			"firelack.rosestrades.RosesTradesDataGenerator"
 		]

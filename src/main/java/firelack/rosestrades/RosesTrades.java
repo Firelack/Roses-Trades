@@ -1,5 +1,6 @@
 package firelack.rosestrades;
 
+import firelack.rosestrades.registry.ModBlocks;
 import firelack.rosestrades.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -13,5 +14,6 @@ public class RosesTrades implements ModInitializer {
     public void onInitialize() {
         LOGGER.info("Roses Trades mod initializing...");
         ModItems.registerModItems();
+        ModBlocks.registerModBlocks();
     }
 }

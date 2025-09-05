@@ -21,19 +21,11 @@ public class ModItems {
             new RoseItem(new Item.Settings().maxCount(64))
     );
 
-    public static final Item BOUQUET = Registry.register(
-            Registries.ITEM,
-            Identifier.of(RosesTrades.MOD_ID, "bouquet"),
-            new Item(new Item.Settings().maxCount(64))
-    );
-
     public static void registerModItems() {
         RosesTrades.LOGGER.info("Registering mod items for " + RosesTrades.MOD_ID);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
             entries.add(SPECIAL_ROSE);
-            entries.add(ROSE);
-            entries.add(BOUQUET);
-        });
+            entries.add(ROSE);        });
     }
 }
