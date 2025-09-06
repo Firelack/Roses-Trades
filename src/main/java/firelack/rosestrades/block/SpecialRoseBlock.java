@@ -1,4 +1,4 @@
-package firelack.rosestrades.registry;
+package firelack.rosestrades.block;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowerBlock;

@@ -1,15 +1,13 @@
-package firelack.rosestrades.registry;
+package firelack.rosestrades.block;
 
 import firelack.rosestrades.RosesTrades;
+import firelack.rosestrades.item.SpecialRoseItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.FlowerPotBlock;
-import firelack.rosestrades.registry.SpecialRoseBlock;
-import firelack.rosestrades.registry.SpecialRoseItem;
 import net.minecraft.entity.effect.StatusEffects;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;

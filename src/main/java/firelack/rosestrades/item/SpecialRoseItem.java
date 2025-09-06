@@ -1,4 +1,4 @@
-package firelack.rosestrades.registry;
+package firelack.rosestrades.item;
 
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemPlacementContext;
@@ -6,7 +6,7 @@ import net.minecraft.util.ActionResult;
 
 public class SpecialRoseItem extends BlockItem {
     public SpecialRoseItem(Settings settings) {
-        super(firelack.rosestrades.registry.ModBlocks.SPECIAL_ROSE, settings);
+        super(firelack.rosestrades.block.ModBlocks.SPECIAL_ROSE, settings);
     }
 
     @Override

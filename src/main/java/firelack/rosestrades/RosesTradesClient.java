@@ -1,6 +1,6 @@
 package firelack.rosestrades;
 
-import firelack.rosestrades.registry.ModBlocks;
+import firelack.rosestrades.block.ModBlocks;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

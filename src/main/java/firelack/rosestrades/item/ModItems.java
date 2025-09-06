@@ -1,4 +1,4 @@
-package firelack.rosestrades.registry;
+package firelack.rosestrades.item;
 
 import firelack.rosestrades.RosesTrades;
 
