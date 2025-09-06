@@ -1,25 +1,19 @@
 package firelack.rosestrades.registry;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.ItemPlacementContext;
+import net.minecraft.util.ActionResult;
 
-public class SpecialRoseItem extends Item {
+public class SpecialRoseItem extends BlockItem {
     public SpecialRoseItem(Settings settings) {
-        super(settings);
+        super(firelack.rosestrades.registry.ModBlocks.SPECIAL_ROSE, settings);
     }
 
     @Override
-    public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
-        if (!world.isClient && miner instanceof PlayerEntity player) {
-            // TODO : ajouter +1 au compteur plus tard
-            // Ex : RosesCounter.increment(player);
+    public ActionResult place(ItemPlacementContext context) {
+        if (context.getPlayer() != null && !context.getPlayer().isCreative()) {
+            return ActionResult.FAIL; // interdit si pas créatif
         }
-        // Empêche le drop de l'item (comportement spécial)
-        return false;
+        return super.place(context);
     }
 }

@@ -5,8 +5,11 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.block.FlowerPotBlock;
+import firelack.rosestrades.registry.SpecialRoseBlock;
+import firelack.rosestrades.registry.SpecialRoseItem;
 import net.minecraft.entity.effect.StatusEffects;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -50,17 +53,30 @@ public class ModBlocks {
         new FlowerPotBlock(ROSE, AbstractBlock.Settings.copy(Blocks.POTTED_POPPY))
     );
 
-    // Declaration of the "bouquet" block item
+    // Declaration of the "rose" block item
     public static final Item ROSE_ITEM = Registry.register(
         Registries.ITEM,
         Identifier.of(RosesTrades.MOD_ID, "rose"),
         new BlockItem(ROSE, new Item.Settings())
     );
 
+    public static final SpecialRoseBlock SPECIAL_ROSE = Registry.register(
+        Registries.BLOCK,
+        Identifier.of(RosesTrades.MOD_ID, "special_rose"),
+        new SpecialRoseBlock(AbstractBlock.Settings.copy(Blocks.POPPY))
+    );
+
+    public static final Item SPECIAL_ROSE_ITEM = Registry.register(
+        Registries.ITEM,
+        Identifier.of(RosesTrades.MOD_ID, "special_rose"),
+        new SpecialRoseItem(new Item.Settings())
+    );
+
     public static void registerModBlocks() {
         RosesTrades.LOGGER.info("Registering mod blocks for " + RosesTrades.MOD_ID);
 
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.NATURAL).register(entries -> {
+            entries.add(SPECIAL_ROSE);
             entries.add(ROSE);
             entries.add(BOUQUET);
         });
