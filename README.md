@@ -8,12 +8,13 @@
 **Roses Trades** is a Minecraft mod focused on collecting and trading roses to unlock unique cosmetics.  
 The system is inspired by the trading mechanics of the game [Wolvesville](https://www.wolvesville.com/).
 
-> **Note:** At the moment, this repository only contains the base Fabric template.  
+> **Note:** At the moment, this repository contains a little part of the mod.  
 > Features will be added in future commits.
 
 ## 🚀 Features
 
-- Features are in progress
+- Special Rose naturally spawn in specific biomes
+- **Features are in progress**
 
 ## ☑️ Installation
 
@@ -61,7 +62,7 @@ This mod is still in development and is not yet available for installation.
 
 - [x] Create 2 new "Special Rose" and "Rose items.  
 - [x] Add block and potted_rose for rose.
-- [ ] Add block and natural special_rose generation in biomes.  
+- [x] Add block and natural special_rose generation in biomes.  
 - [ ] Prevent "Special Rose" from dropping as items → increment counter instead.  
 - [ ] Implement a global rose counter tied to each player (persistent data).  
 
