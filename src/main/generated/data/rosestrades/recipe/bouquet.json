@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "R": {
+      "item": "rosestrades:rose"
+    },
+    "S": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "RRR",
+    "RRR",
+    " S "
+  ],
+  "result": {
+    "count": 1,
+    "id": "rosestrades:bouquet"
+  }
+}

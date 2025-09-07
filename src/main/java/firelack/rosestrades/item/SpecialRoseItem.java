@@ -12,7 +12,7 @@ public class SpecialRoseItem extends BlockItem {
     @Override
     public ActionResult place(ItemPlacementContext context) {
         if (context.getPlayer() != null && !context.getPlayer().isCreative()) {
-            return ActionResult.FAIL; // interdit si pas créatif
+            return ActionResult.FAIL; // Prevent placement if the player is not in creative mode
         }
         return super.place(context);
     }

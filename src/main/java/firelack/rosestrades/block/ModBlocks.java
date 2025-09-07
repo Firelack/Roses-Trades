@@ -25,6 +25,7 @@ public class ModBlocks {
         new FlowerBlock(StatusEffects.LUCK, 0, AbstractBlock.Settings.copy(Blocks.POPPY))
     );
 
+    // Declatation of the "potted_bouquet" block
     public static final Block POTTED_BOUQUET = Registry.register(
         Registries.BLOCK,
         Identifier.of(RosesTrades.MOD_ID, "potted_bouquet"),
@@ -38,13 +39,14 @@ public class ModBlocks {
         new BlockItem(BOUQUET, new Item.Settings())
     );
 
-    // Declatation of the "bouquet" block
+    // Declatation of the "rose" block
     public static final Block ROSE = Registry.register(
         Registries.BLOCK,
         Identifier.of(RosesTrades.MOD_ID, "rose"),
         new FlowerBlock(StatusEffects.LUCK, 0, AbstractBlock.Settings.copy(Blocks.POPPY))
     );
 
+    // Declatation of the "potted_rose" block
     public static final Block POTTED_ROSE = Registry.register(
         Registries.BLOCK,
         Identifier.of(RosesTrades.MOD_ID, "potted_rose"),
@@ -58,18 +60,21 @@ public class ModBlocks {
         new BlockItem(ROSE, new Item.Settings())
     );
 
+    // Declatation of the "special_rose" block
     public static final SpecialRoseBlock SPECIAL_ROSE = Registry.register(
         Registries.BLOCK,
         Identifier.of(RosesTrades.MOD_ID, "special_rose"),
         new SpecialRoseBlock(AbstractBlock.Settings.copy(Blocks.POPPY))
     );
 
+    // Declaration of the "special_rose" block item
     public static final Item SPECIAL_ROSE_ITEM = Registry.register(
         Registries.ITEM,
         Identifier.of(RosesTrades.MOD_ID, "special_rose"),
         new SpecialRoseItem(new Item.Settings())
     );
 
+    // Method to register the blocks and add them to the item group
     public static void registerModBlocks() {
         RosesTrades.LOGGER.info("Registering mod blocks for " + RosesTrades.MOD_ID);
 
