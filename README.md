@@ -63,7 +63,7 @@ This mod is still in development and is not yet available for installation.
 - [x] Create 2 new "Special Rose" and "Rose items.  
 - [x] Add block and potted_rose for rose.
 - [x] Add block and natural special_rose generation in biomes.  
-- [ ] Prevent "Special Rose" from dropping as items → increment counter instead.  
+- [x] Prevent "Special Rose" from dropping as items → increment counter instead.  
 - [ ] Implement a global rose counter tied to each player (persistent data).  
 
 ### 📊 Rose Counter
