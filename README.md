@@ -30,11 +30,6 @@ This mod is still in development and is not yet available for installation.
 
 ## ✨ Planned Features
 
-- 🌱 **Special Roses**:  
-  - Naturally spawn in specific biomes.  
-  - Can be harvested, but don't drop as items.  
-  - Instead, a **rose counter** increases (only visible in the mod menu and when harvesting a rose).  
-
 - 🎁 **Mod Menu**:  
   - Displays the rose counter.  
   - Option to **spawn physical roses** (cannot be re-added to the counter).  
@@ -57,6 +52,11 @@ This mod is still in development and is not yet available for installation.
   - A unique set of very expensive cosmetics, synchronized across your worlds.  
   - Ability to add your own cosmetics to your games and servers.  
   - Achievements and rewards tied to rose collection.  
+
+- 🌹 **Rose Boss**
+  - Add a Carnivorous Rose.
+  - Spawn in specific structure.
+  - Give roses to player who kill her (divide by two each time)
 
 ## 🛣️ Detailed Roadmap
 
@@ -121,3 +121,10 @@ This mod is still in development and is not yet available for installation.
 - [ ] Event system (special drops, limited-time cosmetics).  
 - [ ] Compatibility with other mods (ModMenu, Optifine, UI mods, etc).  
 - [ ] Implement a global rose counter tied to each player (persistent data) and cosmetics sync.  
+
+### 🌹 Roses boss
+
+- [ ] Add Roses boss mob.
+- [ ] Create a structure for spawn Roses boss.
+- [ ] Add system to invoke the boss.
+- [ ] Incremente player who kill the boss counter (divide by 2 each time).
