@@ -31,7 +31,7 @@ public class SpecialRoseBlock extends FlowerBlock {
             System.out.println(serverPlayer.getName().getString() + " a cassé une Special Rose ! Total = " + count);
 
             // Message en jeu
-            serverPlayer.sendMessage(Text.literal("🌹 Roses cassées : " + count), true);
+            serverPlayer.sendMessage(Text.literal("Roses cassées : " + count), true);
         }
     }
 }

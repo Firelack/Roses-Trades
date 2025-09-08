@@ -14,6 +14,8 @@ The system is inspired by the trading mechanics of the game [Wolvesville](https:
 ## 🚀 Features
 
 - Special Rose naturally spawn in specific biomes
+- Counter of special roses breack for each player and world (word in multiplayer)
+- /roses /roses leaderboard and /roses leaderboard < offset> commands
 - **Features are in progress**
 
 ## ☑️ Installation
@@ -64,13 +66,17 @@ This mod is still in development and is not yet available for installation.
 - [x] Add block and potted_rose for rose.
 - [x] Add block and natural special_rose generation in biomes.  
 - [x] Prevent "Special Rose" from dropping as items → increment counter instead.  
-- [ ] Implement a global rose counter tied to each player (persistent data).  
+
+### ❗ Important
+
+- [ ] Add language compatibility for mod text (ModCommands, SpecialRoseBlock, SpecialRoseItem).
 
 ### 📊 Rose Counter
 
 - [ ] Add a HUD/overlay to show the counter only when harvesting.  
 - [ ] Integrate the counter into the mod menu (always accessible).  
-- [ ] Save/load the counter between game sessions.  
+- [x] Save/load the counter between game sessions.  
+- [x] Add commands to see position and leaderboard.
 
 ### 🎁 Mod Main Menu
 
@@ -114,3 +120,4 @@ This mod is still in development and is not yet available for installation.
 - [ ] Achievements and rewards tied to rose collection.  
 - [ ] Event system (special drops, limited-time cosmetics).  
 - [ ] Compatibility with other mods (ModMenu, Optifine, UI mods, etc).  
+- [ ] Implement a global rose counter tied to each player (persistent data) and cosmetics sync.  

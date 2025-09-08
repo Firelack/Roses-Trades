@@ -9,11 +9,15 @@ public class SpecialRoseItem extends BlockItem {
         super(firelack.rosestrades.block.ModBlocks.SPECIAL_ROSE, settings);
     }
 
-    @Override
-    public ActionResult place(ItemPlacementContext context) {
-        if (context.getPlayer() != null && !context.getPlayer().isCreative()) {
-            return ActionResult.FAIL; // Prevent placement if the player is not in creative mode
-        }
-        return super.place(context);
+@Override
+public ActionResult place(ItemPlacementContext context) {
+    if (context.getPlayer() != null && !context.getPlayer().isCreative()) {
+        context.getPlayer().sendMessage(
+            net.minecraft.text.Text.literal("Vous ne pouvez pas placer cette rose en survie !"), 
+            true // true = message système, ne spam pas le chat
+        );
+        return ActionResult.FAIL; // Empêche le placement
     }
+    return super.place(context);
+}
 }
