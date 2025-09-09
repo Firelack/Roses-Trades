@@ -27,11 +27,11 @@ public class SpecialRoseBlock extends FlowerBlock {
             ((ServerPlayerEntityMixinAccess) serverPlayer).incrementRoseCount();
             int count = ((ServerPlayerEntityMixinAccess) serverPlayer).getRoseCount();
 
-            // Log console
-            System.out.println(serverPlayer.getName().getString() + " a cassé une Special Rose ! Total = " + count);
+            // Console log
+            System.out.println(serverPlayer.getName().getString() + " broke a special rose ! Total = " + count);
 
-            // Message en jeu
-            serverPlayer.sendMessage(Text.literal("Roses cassées : " + count), true);
+            // In-game message to the player
+            serverPlayer.sendMessage(Text.translatable("message.rosestrades.rose_count", count), true);
         }
     }
 }

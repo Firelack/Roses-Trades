@@ -13,9 +13,11 @@ The system is inspired by the trading mechanics of the game [Wolvesville](https:
 
 ## 🚀 Features
 
-- Special Rose naturally spawn in specific biomes
-- Counter of special roses breack for each player and world (word in multiplayer)
-- /roses /roses leaderboard and /roses leaderboard < offset> commands
+- 🌱 **Special Roses**:  
+  - Naturally spawn in specific biomes.  
+  - Can be harvested, but don't drop as items.  
+  - Instead, a **rose counter** increases.  
+  - Commands to see position and leaderboard.
 - **Features are in progress**
 
 ## ☑️ Installation
@@ -69,7 +71,7 @@ This mod is still in development and is not yet available for installation.
 
 ### ❗ Important
 
-- [ ] Add language compatibility for mod text (ModCommands, SpecialRoseBlock, SpecialRoseItem).
+- [x] Add language compatibility for mod text.
 
 ### 📊 Rose Counter
 
@@ -85,7 +87,8 @@ This mod is still in development and is not yet available for installation.
 - [ ] Button to **spawn a physical rose** (added to the inventory a "Rose").  
 - [x] Add item and crafting recipe for **bouquets** (decorative item).
 - [x] Add block (and potted_bouquet) for decorative bouquets.
-- [ ] Tabs: Shop / Cosmetics Inventory.  
+- [ ] Tabs: Shop / Cosmetics Inventory.
+- [ ] Language compatibility.
 
 ### 🛒 Cosmetics Shop
 

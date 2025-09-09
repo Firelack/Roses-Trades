@@ -1,0 +1,12 @@
+{
+  "block.rosestrades.rose": "Rose",
+  "block.rosestrades.special_rose": "Spezialrose",
+  "block.rosestrades.bouquet": "Blumenstrauß",
+
+  "message.rosestrades.rose_count": "Zerstörte Rosen: %s",
+  "message.rosestrades.cant_place": "Du kannst diese Rose im Überlebensmodus nicht platzieren.",
+  "message.rosestrades.break_special_rose": "Du hast %s Rosen zerstört.",
+  "message.rosestrades.offset_hight": "Versatz zu groß, zeige stattdessen die Top 5.",
+  "message.rosestrades.ranking": "=== Rosen-Rangliste ( %s - %s ) ===",
+  "message.rosestrades.rank": "Dein Rang: #%s mit %s Rosen."
+}

@@ -21,7 +21,7 @@ public class ModCommands {
             .executes(ctx -> {
                 ServerPlayerEntity player = ctx.getSource().getPlayer();
                 int count = ((ServerPlayerEntityMixinAccess) player).getRoseCount();
-                player.sendMessage(Text.literal("Tu as cassé " + count + " roses."), false);
+                player.sendMessage(Text.translatable("message.rosestrades.break_special_rose", count), false);
                 return 1;
             })
 
@@ -51,7 +51,7 @@ public class ModCommands {
             .collect(Collectors.toList());
 
         if (sorted.isEmpty()) {
-            source.sendFeedback(() -> Text.literal("Aucun joueur trouvé."), false);
+            source.sendFeedback(() -> Text.literal("No player found."), false);
             return 0;
         }
 
@@ -60,13 +60,13 @@ public class ModCommands {
 
         // If offset is too large, reset to 0
         if (offset >= sorted.size()) {
-            self.sendMessage(Text.literal("Offset trop grand, affichage du top 5 à la place."), false);
+            self.sendMessage(Text.translatable("message.rosestrades.offset_hight"), false);
             offset = 0;
         }
 
         int max = Math.min(offset + 5, sorted.size());
 
-        self.sendMessage(Text.literal("=== Classement des Roses (" + (offset + 1) + "-" + max + ") ==="), false);
+        self.sendMessage(Text.translatable("message.rosestrades.ranking", (offset + 1), max), false);
 
         for (int i = offset; i < max; i++) {
             ServerPlayerEntity p = sorted.get(i);
@@ -78,7 +78,7 @@ public class ModCommands {
         int selfIndex = sorted.indexOf(self);
         if (selfIndex >= 0) {
             int selfCount = ((ServerPlayerEntityMixinAccess) self).getRoseCount();
-            self.sendMessage(Text.literal("Ton rang : #" + (selfIndex + 1) + " avec " + selfCount + " roses."), false);
+            self.sendMessage(Text.translatable("message.rosestrades.rank", (selfIndex + 1), selfCount), false);
         }
 
         return 1;

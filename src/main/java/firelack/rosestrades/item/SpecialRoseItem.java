@@ -13,10 +13,10 @@ public class SpecialRoseItem extends BlockItem {
 public ActionResult place(ItemPlacementContext context) {
     if (context.getPlayer() != null && !context.getPlayer().isCreative()) {
         context.getPlayer().sendMessage(
-            net.minecraft.text.Text.literal("Vous ne pouvez pas placer cette rose en survie !"), 
-            true // true = message système, ne spam pas le chat
+            net.minecraft.text.Text.translatable("message.rosestrades.cant_place"), 
+            true // true = system message (doesn't appear in chat history)
         );
-        return ActionResult.FAIL; // Empêche le placement
+        return ActionResult.FAIL; // Prevent placement
     }
     return super.place(context);
 }

@@ -1,5 +1,12 @@
 {
   "block.rosestrades.rose": "Rose",
   "block.rosestrades.special_rose": "Special Rose",
-  "block.rosestrades.bouquet": "Bouquet"
+  "block.rosestrades.bouquet": "Bouquet",
+
+  "message.rosestrades.rose_count": "Roses broken: %s",
+  "message.rosestrades.cant_place": "You can't place this rose is survival.",
+  "message.rosestrades.break_special_rose": "You have break %s roses.",
+  "message.rosestrades.offset_hight": "Offset too big, showing top 5 instead.",
+  "message.rosestrades.ranking": "=== Ranking of the Roses ( %s - %s ) ===",
+  "message.rosestrades.rank": "Your rank: #%s with %s roses."
 }
