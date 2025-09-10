@@ -75,14 +75,14 @@ This mod is still in development and is not yet available for installation.
 
 ### 📊 Rose Counter
 
-- [ ] Add a HUD/overlay to show the counter only when harvesting.  
+- [x] Add a HUD/overlay to show the counter only when harvesting.  
 - [ ] Integrate the counter into the mod menu (always accessible).  
 - [x] Save/load the counter between game sessions.  
 - [x] Add commands to see position and leaderboard.
 
 ### 🎁 Mod Main Menu
 
-- [ ] Create a custom GUI screen accessible via a keybind or button.  
+- [ ] Create a custom GUI screen accessible via a keybind.  
 - [ ] Display the rose counter.  
 - [ ] Button to **spawn a physical rose** (added to the inventory a "Rose").  
 - [x] Add item and crafting recipe for **bouquets** (decorative item).

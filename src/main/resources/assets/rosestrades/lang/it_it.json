@@ -1,0 +1,12 @@
+{
+  "block.rosestrades.rose": "Rosa",
+  "block.rosestrades.special_rose": "Rosa Speciale",
+  "block.rosestrades.bouquet": "Mazzo di Fiori",
+  
+  "message.rosestrades.rose_count": "Rose distrutte: %s",
+  "message.rosestrades.cant_place": "Non puoi piazzare questa rosa in modalità sopravvivenza.",
+  "message.rosestrades.break_special_rose": "Hai distrutto %s rose.",
+  "message.rosestrades.offset_hight": "Offset troppo grande, viene mostrata invece la top 5.",
+  "message.rosestrades.ranking": "=== Classifica delle Rose ( %s - %s ) ===",
+  "message.rosestrades.rank": "La tua posizione: #%s con %s rose."
+}
