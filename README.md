@@ -3,6 +3,15 @@
 **Minecraft Version:** 1.21.1  
 **Mod Loader:** Fabric  
 
+## 📚 Table of Contents
+
+- [📖 Description](#-description)
+- [✨ Features](#-features)
+- [☑️ Installation](#️-installation)
+- [📦 Requirements](#-requirements)
+- [✨ Planned Features](#-planned-features)
+- [🛣️ Detailed Roadmap](#️-detailed-roadmap)
+
 ## 📖 Description
 
 **Roses Trades** is a Minecraft mod focused on collecting and trading roses to unlock unique cosmetics.  
