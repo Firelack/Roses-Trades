@@ -1,5 +1,6 @@
 package firelack.rosestrades.client.gui;
 
+import firelack.rosestrades.client.ModKeyBindings;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
@@ -80,13 +81,13 @@ public class CustomMenuScreen extends Screen {
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        // 1. Appliquer le flou vanilla (fond derrière)
+        // Fond flou vanilla
         this.renderBackground(context, mouseX, mouseY, delta);
 
-        // 2. Dessiner les widgets vanilla (boutons, champs texte)
+        // Dessiner widgets
         super.render(context, mouseX, mouseY, delta);
 
-        // 3. Dessiner ton overlay custom (net)
+        // Overlay custom
         // Bande supérieure
         context.fill(0, 0, this.width, 25, 0x88000000);
         context.drawTextWithShadow(this.textRenderer, "Roses cassées : " + rosesBroken, 10, 8, 0xFFFFFF);
@@ -101,9 +102,17 @@ public class CustomMenuScreen extends Screen {
 
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        // Gestion du TextField
         if (this.amountField.keyPressed(keyCode, scanCode, modifiers) || this.amountField.isActive()) {
             return true;
         }
+
+        // Fermer le menu avec la touche définie
+        if (ModKeyBindings.OPEN_MENU.matchesKey(keyCode, scanCode)) {
+            this.close();
+            return true;
+        }
+
         return super.keyPressed(keyCode, scanCode, modifiers);
     }
 
