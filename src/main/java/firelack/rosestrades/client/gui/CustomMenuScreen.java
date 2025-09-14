@@ -28,7 +28,7 @@ public class CustomMenuScreen extends Screen {
         this.amountField = new TextFieldWidget(
             this.textRenderer,
             this.width - buttonWidth - rightMargin,
-            30, // position Y sous le bouton
+            30, // position Y sous le bouton Give Roses
             buttonWidth,
             20,
             Text.literal("Amount")
@@ -55,7 +55,9 @@ public class CustomMenuScreen extends Screen {
 
         // Colonne de droite avec boutons
         int columnX = this.width - buttonWidth - rightMargin;
-        int startY = topBarHeight + 60;
+
+        // 🔥 Alignement avec la zone centrale
+        int startY = topBarHeight + 20; 
         int spacing = 25;
 
         this.addDrawableChild(ButtonWidget.builder(Text.literal("Recherche"), b -> {
@@ -87,7 +89,6 @@ public class CustomMenuScreen extends Screen {
         // Dessiner widgets
         super.render(context, mouseX, mouseY, delta);
 
-        // Overlay custom
         // Bande supérieure
         context.fill(0, 0, this.width, 25, 0x88000000);
         context.drawTextWithShadow(this.textRenderer, "Roses cassées : " + rosesBroken, 10, 8, 0xFFFFFF);
@@ -98,6 +99,11 @@ public class CustomMenuScreen extends Screen {
         int topBarHeight = 25;
         context.fill(leftMargin, topBarHeight + 10, this.width - rightColumnWidth - 20, this.height - 20, 0x22000000);
         context.drawCenteredTextWithShadow(this.textRenderer, "Cosmétiques (scroll à venir)", this.width / 2, topBarHeight + 20, 0xAAAAAA);
+
+        // 🔥 Signature en bas à droite
+        String signature = "by Firelack";
+        int sigWidth = this.textRenderer.getWidth(signature);
+        context.drawTextWithShadow(this.textRenderer, signature, this.width - sigWidth - 5, this.height - 12, 0x808080);
     }
 
     @Override
