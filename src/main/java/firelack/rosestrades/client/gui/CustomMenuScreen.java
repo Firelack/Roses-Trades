@@ -10,15 +10,20 @@ import net.minecraft.util.Formatting;
 import net.minecraft.text.ClickEvent;
 import net.minecraft.text.OrderedText;
 import net.minecraft.text.Style;
+import java.awt.Rectangle;
+import java.util.List;
+import net.minecraft.util.Util;
 
 public class CustomMenuScreen extends Screen {
 
     private int rosesBroken; 
     private TextFieldWidget amountField; // Field for amount of roses to give
 
+    private Rectangle githubLinkArea; // Area for the GitHub link
+
     // Pages enum
     public enum Page {
-        RECHERCHE, SHOP, INVENTAIRE, MORE, IMPORT
+        SEARCH, SHOP, INVENTORY, MORE, IMPORT
     }
 
     private Page currentPage = Page.SHOP; // Default page
@@ -85,13 +90,13 @@ public class CustomMenuScreen extends Screen {
         int startY = topBarHeight + 20; 
         int spacing = 25;
 
-        this.addDrawableChild(ButtonWidget.builder(Text.literal("Recherche"), b -> switchPage(Page.RECHERCHE))
+        this.addDrawableChild(ButtonWidget.builder(Text.literal("Search"), b -> switchPage(Page.SEARCH))
             .dimensions(columnX, startY, buttonWidth, buttonHeight).build());
 
-        this.addDrawableChild(ButtonWidget.builder(Text.literal("Boutique"), b -> switchPage(Page.SHOP))
+        this.addDrawableChild(ButtonWidget.builder(Text.literal("Shop"), b -> switchPage(Page.SHOP))
             .dimensions(columnX, startY + spacing, buttonWidth, buttonHeight).build());
 
-        this.addDrawableChild(ButtonWidget.builder(Text.literal("Inventaire"), b -> switchPage(Page.INVENTAIRE))
+        this.addDrawableChild(ButtonWidget.builder(Text.literal("Inventory"), b -> switchPage(Page.INVENTORY))
             .dimensions(columnX, startY + spacing * 2, buttonWidth, buttonHeight).build());
 
         this.addDrawableChild(ButtonWidget.builder(Text.literal("More"), b -> switchPage(Page.MORE))
@@ -132,23 +137,41 @@ public class CustomMenuScreen extends Screen {
         int y = boxTop + 10;
 
         switch (currentPage) {
-            case RECHERCHE -> y = drawTextInBox(context, "Page to delete to make a search box on the button", boxLeft, boxRight, y, 0xFFFFFF);
+            case SEARCH -> y = drawTextInBox(context, "Page🌹😭 to delete to make a search box on the button", boxLeft, boxRight, y, 0xFFFFFF);
             case SHOP -> y = drawTextInBox(context, "Futur shop, scroll and cosmetiques need to be added (+page for each article)", boxLeft, boxRight, y, 0xFFFF55);
-            case INVENTAIRE -> y = drawTextInBox(context, "Futur inventory of the player", boxLeft, boxRight, y, 0x55FF55);
+            case INVENTORY -> y = drawTextInBox(context, "Futur inventory of the player", boxLeft, boxRight, y, 0x55FF55);
             case MORE -> {
-                y = drawTextInBox(context, "More info : (page in construction)", boxLeft, boxRight, y, 0xFFFFFF);
-                y = drawTextInBox(context, "Link :", boxLeft, boxRight, y, 0xAAAAAA);
+                // Texte explicatif
+                y = drawTextInBox(context, "Welcome to Roses Trades, a Minecraft mod created by Firelack. 🌹", boxLeft, boxRight, y, 0xFFFFFF);
+                y = drawTextInBox(context, "This mod focuses on collecting and trading special roses to unlock unique cosmetics.", boxLeft, boxRight, y, 0xAAAAAA);
+                y = drawTextInBox(context, "Roses spawn in specific biomes and increase your rose counter instead of dropping as items.", boxLeft, boxRight, y, 0xAAAAAA);
+                y = drawTextInBox(context, "The menu will allow you to track your rose counter, spawn physical roses, craft bouquets, and access the shop and cosmetics inventory.", boxLeft, boxRight, y, 0xAAAAAA);
+                y = drawTextInBox(context, "Future features include buying cosmetics, equipping them, sharing custom cosmetics in multiplayer, and tracking achievements.", boxLeft, boxRight, y, 0xAAAAAA);
 
-                Text lien1 = Text.literal("→ Link don't work yet")
-                        .setStyle(Style.EMPTY.withUnderline(true).withColor(Formatting.AQUA)
-                                .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/Firelack")));
+                y += 10; // petit espace avant le lien
 
-                for (OrderedText line : this.textRenderer.wrapLines(lien1, boxRight - boxLeft - 20)) {
-                    int x = (boxLeft + boxRight) / 2 - this.textRenderer.getWidth(line) / 2;
-                    context.drawTextWithShadow(this.textRenderer, line, x, y, 0xFFFFFF);
-                    y += 12;
+                // Lien cliquable
+                Text githubLink = Text.literal("→ GitHub Project")
+                        .setStyle(Style.EMPTY
+                                .withUnderline(true)
+                                .withColor(Formatting.AQUA)
+                                .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL,
+                                        "https://github.com/Firelack/Roses-Trades")));
+
+                List<OrderedText> wrappedLink = this.textRenderer.wrapLines(githubLink, boxRight - boxLeft - 20);
+                int linkX = (boxLeft + boxRight) / 2;
+                int linkY = y;
+
+                for (OrderedText line : wrappedLink) {
+                    int lineWidth = this.textRenderer.getWidth(line);
+                    context.drawTextWithShadow(this.textRenderer, line, linkX - lineWidth / 2, linkY, 0xFFFFFF);
+                    linkY += 12;
                 }
+
+                // Sauvegarde des coordonnées du lien pour mouseClicked
+                githubLinkArea = new Rectangle(linkX - this.textRenderer.getWidth(githubLink) / 2, y, this.textRenderer.getWidth(githubLink), wrappedLink.size() * 12);
             }
+
             case IMPORT -> y = drawTextInBox(context, "Future import function", boxLeft, boxRight, y, 0xAAAAFF);
         }
 
@@ -183,13 +206,21 @@ public class CustomMenuScreen extends Screen {
         return super.charTyped(chr, modifiers);
     }
 
-    @Override
-    public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        if (this.amountField.mouseClicked(mouseX, mouseY, button)) {
-            return true;
-        }
-        return super.mouseClicked(mouseX, mouseY, button);
+
+@Override
+public boolean mouseClicked(double mouseX, double mouseY, int button) {
+    if (this.amountField.mouseClicked(mouseX, mouseY, button)) {
+        return true;
     }
+
+    // Vérifie si le clic est sur le lien GitHub
+    if (githubLinkArea != null && githubLinkArea.contains((int) mouseX, (int) mouseY)) {
+        Util.getOperatingSystem().open("https://github.com/Firelack");
+        return true;
+    }
+
+    return super.mouseClicked(mouseX, mouseY, button);
+}
 
     @Override
     public void close() {

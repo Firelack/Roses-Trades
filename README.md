@@ -91,12 +91,14 @@ This mod is still in development and is not yet available for installation.
 
 ### 🎁 Mod Main Menu
 
-- [ ] Create a custom GUI screen accessible via a keybind.  
+- [X] Create a custom GUI screen accessible via a keybind.  
 - [ ] Display the rose counter.  
 - [ ] Button to **spawn a physical rose** (added to the inventory a "Rose").  
 - [x] Add item and crafting recipe for **bouquets** (decorative item).
 - [x] Add block (and potted_bouquet) for decorative bouquets.
 - [ ] Tabs: Shop / Cosmetics Inventory.
+- [ ] Finish More page (clickable link).
+- [ ] Add a real Search zone.
 - [ ] Language compatibility.
 
 ### 🛒 Cosmetics Shop
@@ -115,14 +117,14 @@ This mod is still in development and is not yet available for installation.
 
 ### 🌍 Multiplayer & Trading
 
-- [ ] In multiplayer, ensure roses must be sent before being used.  
+- [ ] In multiplayer, ensure roses must be sent before being used.  (not sure)
 - [ ] Add a "gift" or "rose sending" system between players.  
 - [ ] Prevent exploits (duplication/rollback issues).  
 
 ### ☁️ Cosmetics Sharing & Customization
 
 - [ ] Create a simple file format for cosmetics (JSON + textures).  
-- [ ] Add a command to import cosmetics in singleplayer.  
+- [ ] Add a page to import cosmetics in singleplayer.  
 - [ ] Sync custom cosmetics with servers (available for all players).  
 - [ ] Ensure compatibility (prevent crashes if a player is missing files).  
 
