@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import firelack.rosestrades.block.ModBlocks;
 import firelack.rosestrades.command.ModCommands;
 import firelack.rosestrades.item.ModItems;
+import firelack.rosestrades.network.RosesTradesServerInit;
 import firelack.rosestrades.world.gen.ModWorldGeneration;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 
@@ -20,6 +21,8 @@ public class RosesTrades implements ModInitializer {
         ModBlocks.registerModBlocks();
 
         ModWorldGeneration.generateWorldGen();
+
+        RosesTradesServerInit.init();
 
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
             ModCommands.register(dispatcher);

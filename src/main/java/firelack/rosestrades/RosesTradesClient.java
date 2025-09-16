@@ -3,18 +3,20 @@ package firelack.rosestrades;
 import firelack.rosestrades.block.ModBlocks;
 import firelack.rosestrades.client.ModKeyBindings;
 import firelack.rosestrades.client.gui.CustomMenuScreen;
+import firelack.rosestrades.network.RoseCountPayload;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.minecraft.client.render.RenderLayer;
-import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class RosesTradesClient implements ClientModInitializer {
 
-    public static final Identifier ROSE_COUNT_SYNC = Identifier.of("rosestrades", "rose_count");
+    public static int clientRoseCount = 0;
 
     @Override
     public void onInitializeClient() {
@@ -27,12 +29,22 @@ public class RosesTradesClient implements ClientModInitializer {
 
         ModKeyBindings.registerKeyBindings();
 
+        // Register the custom packet
+        PayloadTypeRegistry.playS2C().register(RoseCountPayload.ID, RoseCountPayload.CODEC);
+
+        ClientPlayNetworking.registerGlobalReceiver(RoseCountPayload.ID,
+            (payload, context) -> {
+                // Update the client-side rose count when the packet is received
+                clientRoseCount = payload.count();
+            });
+
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             while (ModKeyBindings.OPEN_MENU.wasPressed()) {
                 if (client.player != null) {
-                    client.setScreen(new CustomMenuScreen(0)); // pour l'instant compteur à 0
+                    // Show the custom menu screen with the current rose count
+                    client.setScreen(new CustomMenuScreen(clientRoseCount));
                 }
             }
         });
-    }
+}
 }

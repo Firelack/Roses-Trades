@@ -1,6 +1,8 @@
 package firelack.rosestrades.block;
 
 import firelack.rosestrades.access.ServerPlayerEntityMixinAccess;
+import firelack.rosestrades.network.RoseCountPayload;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.entity.effect.StatusEffects;
@@ -27,10 +29,12 @@ public class SpecialRoseBlock extends FlowerBlock {
             ((ServerPlayerEntityMixinAccess) serverPlayer).incrementRoseCount();
             int count = ((ServerPlayerEntityMixinAccess) serverPlayer).getRoseCount();
 
-            // Console log
+            // Send the updated count to the client
+            ServerPlayNetworking.send(serverPlayer, new RoseCountPayload(count));
+
+            // Logs
             System.out.println(serverPlayer.getName().getString() + " broke a special rose ! Total = " + count);
 
-            // In-game message to the player
             serverPlayer.sendMessage(Text.translatable("message.rosestrades.rose_count", count), true);
         }
     }
