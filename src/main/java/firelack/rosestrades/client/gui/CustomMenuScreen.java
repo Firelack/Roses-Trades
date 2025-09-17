@@ -1,9 +1,12 @@
 package firelack.rosestrades.client.gui;
 
+import firelack.rosestrades.RosesTradesClient;
 import firelack.rosestrades.client.ModKeyBindings;
+import firelack.rosestrades.network.RoseSpendPayload;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -16,9 +19,7 @@ import net.minecraft.util.Util;
 
 public class CustomMenuScreen extends Screen {
 
-    private int rosesBroken; 
     private TextFieldWidget amountField; // Field for amount of roses to give
-
     private Rectangle githubLinkArea; // Area for the GitHub link
 
     // Pages enum
@@ -38,15 +39,15 @@ public class CustomMenuScreen extends Screen {
             int lineWidth = this.textRenderer.getWidth(line);
             int x = textXCenter - (lineWidth / 2);
             context.drawTextWithShadow(this.textRenderer, line, x, y, color);
-            y += 12; // espace entre les lignes
+            y += 12; // Line height
         }
 
-        return y; // retourne la nouvelle position Y pour continuer à dessiner
+        return y; // Return the new Y position after drawing
     }
 
-    public CustomMenuScreen(int rosesBroken) {
+    public CustomMenuScreen(int initialCount) {
         super(Text.literal("Menu Roses"));
-        this.rosesBroken = rosesBroken;
+        // Initial count can be used if needed
     }
 
     @Override
@@ -79,9 +80,8 @@ public class CustomMenuScreen extends Screen {
                     amount = 1; // Default
                 }
 
-                client.player.networkHandler.sendChatMessage(
-                    "/give " + client.player.getGameProfile().getName() + " minecraft:rose " + amount
-                );
+                // Send the spend request to the server
+                ClientPlayNetworking.send(new RoseSpendPayload(amount));
             }
         }).dimensions(this.width - buttonWidth - rightMargin, 3, buttonWidth, buttonHeight).build());
 
@@ -120,7 +120,14 @@ public class CustomMenuScreen extends Screen {
 
         // Top bar
         context.fill(0, 0, this.width, 25, 0x88000000);
-        context.drawTextWithShadow(this.textRenderer, "Roses cassées : " + rosesBroken, 10, 8, 0xFFFFFF);
+        // Show rose count
+        context.drawTextWithShadow(
+            this.textRenderer,
+            Text.translatable("message.rosestrades.rose_count", RosesTradesClient.clientRoseCount),
+            10,
+            8,
+            0xFFFFFF
+        );
 
         // Middle box
         int leftMargin = 20;
@@ -141,16 +148,16 @@ public class CustomMenuScreen extends Screen {
             case SHOP -> y = drawTextInBox(context, "Futur shop, scroll and cosmetiques need to be added (+page for each article)", boxLeft, boxRight, y, 0xFFFF55);
             case INVENTORY -> y = drawTextInBox(context, "Futur inventory of the player", boxLeft, boxRight, y, 0x55FF55);
             case MORE -> {
-                // Texte explicatif
+                // Text description
                 y = drawTextInBox(context, "Welcome to Roses Trades, a Minecraft mod created by Firelack. 🌹", boxLeft, boxRight, y, 0xFFFFFF);
                 y = drawTextInBox(context, "This mod focuses on collecting and trading special roses to unlock unique cosmetics.", boxLeft, boxRight, y, 0xAAAAAA);
                 y = drawTextInBox(context, "Roses spawn in specific biomes and increase your rose counter instead of dropping as items.", boxLeft, boxRight, y, 0xAAAAAA);
                 y = drawTextInBox(context, "The menu will allow you to track your rose counter, spawn physical roses, craft bouquets, and access the shop and cosmetics inventory.", boxLeft, boxRight, y, 0xAAAAAA);
                 y = drawTextInBox(context, "Future features include buying cosmetics, equipping them, sharing custom cosmetics in multiplayer, and tracking achievements.", boxLeft, boxRight, y, 0xAAAAAA);
 
-                y += 10; // petit espace avant le lien
+                y += 10; // Space before the link
 
-                // Lien cliquable
+                // GitHub link
                 Text githubLink = Text.literal("→ GitHub Project")
                         .setStyle(Style.EMPTY
                                 .withUnderline(true)
@@ -168,7 +175,7 @@ public class CustomMenuScreen extends Screen {
                     linkY += 12;
                 }
 
-                // Sauvegarde des coordonnées du lien pour mouseClicked
+                // Save the clickable area for the link
                 githubLinkArea = new Rectangle(linkX - this.textRenderer.getWidth(githubLink) / 2, y, this.textRenderer.getWidth(githubLink), wrappedLink.size() * 12);
             }
 
@@ -206,21 +213,20 @@ public class CustomMenuScreen extends Screen {
         return super.charTyped(chr, modifiers);
     }
 
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (this.amountField.mouseClicked(mouseX, mouseY, button)) {
+            return true;
+        }
 
-@Override
-public boolean mouseClicked(double mouseX, double mouseY, int button) {
-    if (this.amountField.mouseClicked(mouseX, mouseY, button)) {
-        return true;
+        // Verify if the GitHub link was clicked
+        if (githubLinkArea != null && githubLinkArea.contains((int) mouseX, (int) mouseY)) {
+            Util.getOperatingSystem().open("https://github.com/Firelack");
+            return true;
+        }
+
+        return super.mouseClicked(mouseX, mouseY, button);
     }
-
-    // Vérifie si le clic est sur le lien GitHub
-    if (githubLinkArea != null && githubLinkArea.contains((int) mouseX, (int) mouseY)) {
-        Util.getOperatingSystem().open("https://github.com/Firelack");
-        return true;
-    }
-
-    return super.mouseClicked(mouseX, mouseY, button);
-}
 
     @Override
     public void close() {

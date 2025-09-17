@@ -3,7 +3,7 @@
   "block.rosestrades.special_rose": "Rosa especial",
   "block.rosestrades.bouquet": "Ramo",
 
-  "message.rosestrades.rose_count": "Rosas rotas: %s",
+  "message.rosestrades.rose_count": "Rosas totales: %s",
   "message.rosestrades.cant_place": "No puedes colocar esta rosa en supervivencia.",
   "message.rosestrades.break_special_rose": "Has roto %s rosas.",
   "message.rosestrades.offset_hight": "Desplazamiento demasiado grande, mostrando las 5 mejores en su lugar.",

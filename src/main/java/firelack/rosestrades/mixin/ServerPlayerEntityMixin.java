@@ -16,13 +16,13 @@ public abstract class ServerPlayerEntityMixin implements ServerPlayerEntityMixin
     @Unique
     private int specialRoseCount = 0;
 
-    // Sérialiser le compteur dans le NBT du joueur
+    // Add the rose count to the player's NBT data
     @Inject(method = "writeCustomDataToNbt", at = @At("RETURN"))
     private void writeRoseCount(NbtCompound nbt, CallbackInfo ci) {
         nbt.putInt("SpecialRoseCount", specialRoseCount);
     }
 
-    // Lire le compteur depuis le NBT du joueur
+    // Read the rose count from the player's NBT data
     @Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
     private void readRoseCount(NbtCompound nbt, CallbackInfo ci) {
         specialRoseCount = nbt.getInt("SpecialRoseCount");
@@ -36,5 +36,16 @@ public abstract class ServerPlayerEntityMixin implements ServerPlayerEntityMixin
     @Override
     public int getRoseCount() {
         return specialRoseCount;
+    }
+
+    @Override
+    public void decrementRoseCount(int amount) {
+        if (amount < 0) {
+            throw new IllegalArgumentException("Amount to decrement cannot be negative");
+        } else if (specialRoseCount < amount) {
+            throw new IllegalArgumentException("Cannot decrement more than the current rose count");
+        } else {
+        specialRoseCount = Math.max(0, specialRoseCount - amount);
+        }
     }
 }
