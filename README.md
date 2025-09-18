@@ -85,7 +85,7 @@ This mod is still in development and is not yet available for installation.
 ### 📊 Rose Counter
 
 - [x] Add a HUD/overlay to show the counter only when harvesting.  
-- [ ] Integrate the counter into the mod menu (always accessible).  
+- [x] Integrate the counter into the mod menu (always accessible).  
 - [x] Save/load the counter between game sessions.  
 - [x] Add commands to see position and leaderboard.
 
@@ -93,7 +93,8 @@ This mod is still in development and is not yet available for installation.
 
 - [X] Create a custom GUI screen accessible via a keybind.  
 - [x] Display the rose counter.  
-- [ ] Button to **spawn a physical rose** (dec counter + change text (broken roses)).  
+- [x] Button to **spawn a physical rose**.
+- [ ] Option to choose how many roses you want.  
 - [x] Add item and crafting recipe for **bouquets** (decorative item).
 - [x] Add block (and potted_bouquet) for decorative bouquets.
 - [ ] Tabs: Shop / Cosmetics Inventory.

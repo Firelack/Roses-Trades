@@ -8,5 +8,8 @@
   "message.rosestrades.break_special_rose": "Du hast %s Rosen zerstört.",
   "message.rosestrades.offset_hight": "Versatz zu groß, zeige stattdessen die Top 5.",
   "message.rosestrades.ranking": "=== Rosen-Rangliste ( %s - %s ) ===",
-  "message.rosestrades.rank": "Dein Rang: #%s mit %s Rosen."
+  "message.rosestrades.rank": "Dein Rang: #%s mit %s Rosen.",
+
+  "message.rosestrades.spend.success": "§aDu hast %s Rosen ausgegeben und deine Items erhalten!",
+  "message.rosestrades.spend.fail": "§cDu hast nicht genug Rosen, um %s auszugeben."
 }

@@ -8,5 +8,8 @@
   "message.rosestrades.break_special_rose": "You have break %s roses.",
   "message.rosestrades.offset_hight": "Offset too big, showing top 5 instead.",
   "message.rosestrades.ranking": "=== Ranking of the Roses ( %s - %s ) ===",
-  "message.rosestrades.rank": "Your rank: #%s with %s roses."
+  "message.rosestrades.rank": "Your rank: #%s with %s roses.",
+
+  "message.rosestrades.spend.success": "§aYou spent %s roses and received your items!",
+  "message.rosestrades.spend.fail": "§cYou don't have enough roses to spend %s."
 }

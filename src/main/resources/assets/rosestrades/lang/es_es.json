@@ -8,5 +8,8 @@
   "message.rosestrades.break_special_rose": "Has roto %s rosas.",
   "message.rosestrades.offset_hight": "Desplazamiento demasiado grande, mostrando las 5 mejores en su lugar.",
   "message.rosestrades.ranking": "=== Clasificación de las Rosas ( %s - %s ) ===",
-  "message.rosestrades.rank": "Tu rango: #%s con %s rosas."
+  "message.rosestrades.rank": "Tu rango: #%s con %s rosas.",
+
+  "message.rosestrades.spend.success": "§aHas gastado %s rosas y recibido tus objetos!",
+  "message.rosestrades.spend.fail": "§cNo tienes suficientes rosas para gastar %s."
 }
