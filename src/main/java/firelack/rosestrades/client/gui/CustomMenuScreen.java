@@ -47,7 +47,6 @@ public class CustomMenuScreen extends Screen {
 
     public CustomMenuScreen(int initialCount) {
         super(Text.literal("Menu Roses"));
-        // Initial count can be used if needed
     }
 
     @Override
@@ -57,17 +56,20 @@ public class CustomMenuScreen extends Screen {
         int buttonHeight = 20;
         int rightMargin = 10;
 
-        // Field for amount of roses
+        // Create the text field (small, for number only)
         this.amountField = new TextFieldWidget(
             this.textRenderer,
-            this.width - buttonWidth - rightMargin,
-            30, // Y position higher
-            buttonWidth,
-            20,
+            this.width - buttonWidth - rightMargin - 45, // position left of the button
+            3, // y
+            40, // width
+            20, // height
             Text.literal("Amount")
         );
         this.amountField.setText("1");
-        this.addSelectableChild(this.amountField);
+        this.amountField.setPlaceholder(Text.literal("1"));
+        this.amountField.setEditable(true);
+        this.amountField.setDrawsBackground(true);
+        this.addDrawableChild(this.amountField);
 
         // Bouton "Give Roses"
         this.addDrawableChild(ButtonWidget.builder(Text.literal("Give Roses"), b -> {
@@ -77,9 +79,8 @@ public class CustomMenuScreen extends Screen {
                 try {
                     amount = Integer.parseInt(text);
                 } catch (NumberFormatException e) {
-                    amount = 1; // Default
+                    amount = 1; // Default if invalid input
                 }
-
                 // Send the spend request to the server
                 ClientPlayNetworking.send(new RoseSpendPayload(amount));
             }
@@ -117,6 +118,9 @@ public class CustomMenuScreen extends Screen {
 
         // Draw widgets
         super.render(context, mouseX, mouseY, delta);
+
+        // Ensure the text field is visible
+        this.amountField.render(context, mouseX, mouseY, delta);
 
         // Top bar
         context.fill(0, 0, this.width, 25, 0x88000000);
@@ -164,7 +168,6 @@ public class CustomMenuScreen extends Screen {
                                 .withColor(Formatting.AQUA)
                                 .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL,
                                         "https://github.com/Firelack/Roses-Trades")));
-
                 List<OrderedText> wrappedLink = this.textRenderer.wrapLines(githubLink, boxRight - boxLeft - 20);
                 int linkX = (boxLeft + boxRight) / 2;
                 int linkY = y;
@@ -178,7 +181,6 @@ public class CustomMenuScreen extends Screen {
                 // Save the clickable area for the link
                 githubLinkArea = new Rectangle(linkX - this.textRenderer.getWidth(githubLink) / 2, y, this.textRenderer.getWidth(githubLink), wrappedLink.size() * 12);
             }
-
             case IMPORT -> y = drawTextInBox(context, "Future import function", boxLeft, boxRight, y, 0xAAAAFF);
         }
 
@@ -190,8 +192,20 @@ public class CustomMenuScreen extends Screen {
 
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        // Text field input
-        if (this.amountField.keyPressed(keyCode, scanCode, modifiers) || this.amountField.isActive()) {
+        if (this.amountField.keyPressed(keyCode, scanCode, modifiers)) {
+            return true;
+        }
+
+        if (keyCode == 256) { // 256 = GLFW_KEY_ESCAPE
+            if (this.amountField.isFocused()) {
+                // 1 if empty
+                if (this.amountField.getText().isEmpty()) {
+                    this.amountField.setText("1");
+                }
+                this.amountField.setFocused(false);
+                return true;
+            }
+            this.close();
             return true;
         }
 
@@ -210,18 +224,28 @@ public class CustomMenuScreen extends Screen {
         if (Character.isDigit(chr)) {
             return this.amountField.charTyped(chr, modifiers);
         }
-        return super.charTyped(chr, modifiers);
+        return false;
     }
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        // Clic on the text field
         if (this.amountField.mouseClicked(mouseX, mouseY, button)) {
+            this.amountField.setFocused(true);
             return true;
         }
 
-        // Verify if the GitHub link was clicked
-        if (githubLinkArea != null && githubLinkArea.contains((int) mouseX, (int) mouseY)) {
-            Util.getOperatingSystem().open("https://github.com/Firelack");
+        // If clicking outside the text field, unfocus it
+        if (this.amountField.isFocused()) {
+            if (this.amountField.getText().isEmpty()) {
+                this.amountField.setText("1");
+            }
+            this.amountField.setFocused(false);
+        }
+
+        // Verify if the click is on the GitHub link
+        if (currentPage == Page.MORE && githubLinkArea != null && githubLinkArea.contains((int) mouseX, (int) mouseY)) {
+            Util.getOperatingSystem().open("https://github.com/Firelack/Roses-Trades");
             return true;
         }
 

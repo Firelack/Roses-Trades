@@ -27,6 +27,10 @@ The system is inspired by the trading mechanics of the game [Wolvesville](https:
   - Can be harvested, but don't drop as items.  
   - Instead, a **rose counter** increases.  
   - Commands to see position and leaderboard.
+- 🎁 **Mod Menu**:  
+  - Displays the rose counter.  
+  - Option to **spawn physical roses** (cannot be re-added to the counter).  
+  - Craft **bouquets** (decorative items for pots/frames).
 - **Features are in progress**
 
 ## ☑️ Installation
@@ -42,9 +46,6 @@ This mod is still in development and is not yet available for installation.
 ## ✨ Planned Features
 
 - 🎁 **Mod Menu**:  
-  - Displays the rose counter.  
-  - Option to **spawn physical roses** (cannot be re-added to the counter).  
-  - Craft **bouquets** (decorative items for pots/frames).  
   - Access to a **shop** and a **cosmetics inventory**.  
 
 - 🛒 **Cosmetics Shop**:  
@@ -94,7 +95,7 @@ This mod is still in development and is not yet available for installation.
 - [X] Create a custom GUI screen accessible via a keybind.  
 - [x] Display the rose counter.  
 - [x] Button to **spawn a physical rose**.
-- [ ] Option to choose how many roses you want.  
+- [x] Option to choose how many roses you want.  
 - [x] Add item and crafting recipe for **bouquets** (decorative item).
 - [x] Add block (and potted_bouquet) for decorative bouquets.
 - [ ] Tabs: Shop / Cosmetics Inventory.
