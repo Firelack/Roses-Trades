@@ -2,6 +2,10 @@ package firelack.rosestrades.client.gui;
 
 import firelack.rosestrades.RosesTradesClient;
 import firelack.rosestrades.client.ModKeyBindings;
+import firelack.rosestrades.cosmetics.Cosmetic;
+import firelack.rosestrades.cosmetics.CosmeticRegistry;
+import firelack.rosestrades.cosmetics.CosmeticShop;
+import firelack.rosestrades.cosmetics.PlayerCosmeticInventory;
 import firelack.rosestrades.network.RoseSpendPayload;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
@@ -21,6 +25,11 @@ public class CustomMenuScreen extends Screen {
 
     private TextFieldWidget amountField; // Field for amount of roses to give
     private Rectangle githubLinkArea; // Area for the GitHub link
+
+    // Attributs globaux dans ta classe
+    private final PlayerCosmeticInventory playerInventory = new PlayerCosmeticInventory();
+    private final CosmeticShop shop = new CosmeticShop();
+    //private int scrollOffset = 0; // For scrolling through long lists for later
 
     // Pages enum
     public enum Page {
@@ -51,6 +60,9 @@ public class CustomMenuScreen extends Screen {
 
     @Override
     protected void init() {
+        super.init();
+        this.clearChildren(); // Reload buttons when new pages load
+
         int topBarHeight = 25;
         int buttonWidth = 100;
         int buttonHeight = 20;
@@ -105,10 +117,64 @@ public class CustomMenuScreen extends Screen {
 
         this.addDrawableChild(ButtonWidget.builder(Text.literal("Import"), b -> switchPage(Page.IMPORT))
             .dimensions(columnX, startY + spacing * 4, buttonWidth, buttonHeight).build());
+
+        // Middle box content based on current page
+        int leftMargin = 20;
+        int rightColumnWidth = 120;
+        int boxLeft = leftMargin;
+        int boxTop = topBarHeight + 10;
+        int boxRight = this.width - rightColumnWidth - 20;
+
+        int y = boxTop + 40; // Start below the title
+
+        switch (currentPage) {
+            case SHOP -> {
+                for (Cosmetic c : shop.getAvailableCosmetics()) {
+                    boolean owned = playerInventory.owns(c.getId());
+
+                    ButtonWidget button = ButtonWidget.builder(
+                        owned
+                            ? Text.literal("Déjà acheté: " + c.getName())
+                            : Text.literal(c.getName() + " (" + c.getPrice() + " roses)"),
+                        b -> {
+                            if (!owned) {
+                                playerInventory.add(c.getId());
+                                b.setMessage(Text.literal("Déjà acheté: " + c.getName()));
+                                b.active = false; // Desactivate after purchase
+                            }
+                        }
+                    ).dimensions(boxLeft + 10, y, (boxRight - boxLeft) - 20, 20).build();
+
+                    if (owned) button.active = false; // Desactivate if already owned
+                    this.addDrawableChild(button);
+
+                    y += 25;
+                }
+            }
+            case INVENTORY -> {
+                for (String id : playerInventory.getOwnedCosmetics()) {
+                    Cosmetic c = CosmeticRegistry.get(id);
+                    if (c != null) {
+                        this.addDrawableChild(ButtonWidget.builder(
+                            Text.literal("Équiper: " + c.getName()),
+                            button -> {
+                                // Apply the cosmetic (not implemented yet)
+                                System.out.println("Équipé: " + c.getName());
+                            }
+                        ).dimensions(boxLeft + 10, y, (boxRight - boxLeft) - 20, 20).build());
+                        y += 25;
+                    }
+                }
+            }
+            default -> {
+                // Nothing special for other pages yet
+            }
+        }
     }
 
     private void switchPage(Page page) {
         this.currentPage = page;
+        this.init(this.client, this.width, this.height); // Re-initialize to refresh buttons
     }
 
     @Override
@@ -148,9 +214,15 @@ public class CustomMenuScreen extends Screen {
         int y = boxTop + 10;
 
         switch (currentPage) {
-            case SEARCH -> y = drawTextInBox(context, "Page🌹😭 to delete to make a search box on the button", boxLeft, boxRight, y, 0xFFFFFF);
-            case SHOP -> y = drawTextInBox(context, "Futur shop, scroll and cosmetiques need to be added (+page for each article)", boxLeft, boxRight, y, 0xFFFF55);
-            case INVENTORY -> y = drawTextInBox(context, "Futur inventory of the player", boxLeft, boxRight, y, 0x55FF55);
+            case SEARCH -> {
+                y = drawTextInBox(context, "Page🌹😭 to delete to make a search box on the button", boxLeft, boxRight, y, 0xFFFFFF);
+            }
+            case SHOP -> {
+                y = drawTextInBox(context, "Boutique des cosmétiques", boxLeft, boxRight, y, 0xFFFF55);
+            }
+            case INVENTORY -> {
+                y = drawTextInBox(context, "Inventaire du joueur", boxLeft, boxRight, y, 0x55FF55);
+            }
             case MORE -> {
                 // Text description
                 y = drawTextInBox(context, "Welcome to Roses Trades, a Minecraft mod created by Firelack. 🌹", boxLeft, boxRight, y, 0xFFFFFF);

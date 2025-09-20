@@ -9,6 +9,7 @@ import firelack.rosestrades.item.ModItems;
 import firelack.rosestrades.network.RosesTradesServerInit;
 import firelack.rosestrades.world.gen.ModWorldGeneration;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
+import firelack.rosestrades.cosmetics.CosmeticRegistry;
 
 public class RosesTrades implements ModInitializer {
     public static final String MOD_ID = "rosestrades";
@@ -21,6 +22,8 @@ public class RosesTrades implements ModInitializer {
         ModBlocks.registerModBlocks();
 
         ModWorldGeneration.generateWorldGen();
+
+        CosmeticRegistry.init();
 
         RosesTradesServerInit.init();
 

@@ -5,12 +5,21 @@
 
 ## 📚 Table of Contents
 
-- [📖 Description](#-description)
-- [✨ Features](#-features)
-- [☑️ Installation](#️-installation)
-- [📦 Requirements](#-requirements)
-- [✨ Planned Features](#-planned-features)
-- [🛣️ Detailed Roadmap](#️-detailed-roadmap)
+- [🌹 Roses Trades](#-roses-trades)
+  - [📚 Table of Contents](#-table-of-contents)
+  - [📖 Description](#-description)
+  - [🚀 Features](#-features)
+  - [☑️ Installation](#️-installation)
+  - [📦 Requirements](#-requirements)
+  - [✨ Planned Features](#-planned-features)
+  - [🛣️ Detailed Roadmap](#️-detailed-roadmap)
+    - [🎁 Mod Main Menu](#-mod-main-menu)
+    - [🛒 Cosmetics Shop](#-cosmetics-shop)
+    - [👕 Cosmetics](#-cosmetics)
+    - [🌍 Multiplayer \& Trading](#-multiplayer--trading)
+    - [☁️ Cosmetics Sharing \& Customization](#️-cosmetics-sharing--customization)
+    - [✨ Bonus \& Future Improvements](#-bonus--future-improvements)
+    - [🌹 Roses boss](#-roses-boss)
 
 ## 📖 Description
 
@@ -72,24 +81,6 @@ This mod is still in development and is not yet available for installation.
 
 ## 🛣️ Detailed Roadmap
 
-### 🌱 Rose Generation & Harvesting
-
-- [x] Create 2 new "Special Rose" and "Rose items.  
-- [x] Add block and potted_rose for rose.
-- [x] Add block and natural special_rose generation in biomes.  
-- [x] Prevent "Special Rose" from dropping as items → increment counter instead.  
-
-### ❗ Important
-
-- [x] Add language compatibility for mod text.
-
-### 📊 Rose Counter
-
-- [x] Add a HUD/overlay to show the counter only when harvesting.  
-- [x] Integrate the counter into the mod menu (always accessible).  
-- [x] Save/load the counter between game sessions.  
-- [x] Add commands to see position and leaderboard.
-
 ### 🎁 Mod Main Menu
 
 - [X] Create a custom GUI screen accessible via a keybind.  
@@ -98,10 +89,10 @@ This mod is still in development and is not yet available for installation.
 - [x] Option to choose how many roses you want.  
 - [x] Add item and crafting recipe for **bouquets** (decorative item).
 - [x] Add block (and potted_bouquet) for decorative bouquets.
-- [ ] Tabs: Shop / Cosmetics Inventory.
+- [x] Tabs: Shop / Cosmetics Inventory.
 - [ ] Finish More page (clickable link).
 - [ ] Add a real Search zone.
-- [ ] Language compatibility.
+- [x] Language compatibility.
 
 ### 🛒 Cosmetics Shop
 
@@ -119,9 +110,8 @@ This mod is still in development and is not yet available for installation.
 
 ### 🌍 Multiplayer & Trading
 
-- [ ] In multiplayer, ensure roses must be sent before being used.  (not sure)
-- [ ] Add a "gift" or "rose sending" system between players.  
-- [ ] Prevent exploits (duplication/rollback issues).  
+- [ ] Add a "gift" or "rose sending" system between players.
+- [ ] These gift could not be send back or to an other player.
 
 ### ☁️ Cosmetics Sharing & Customization
 
