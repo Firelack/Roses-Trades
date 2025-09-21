@@ -62,7 +62,7 @@ This mod is still in development and is not yet available for installation.
   - Various cosmetics: hats, capes, skins rendered above armor (with an option to hide armor).  
 
 - 🌍 **Multiplayer & Singleplayer**:  
-  - In multiplayer: roses must be sent (and received) in order to be traded.  
+  - In multiplayer: roses can be sent to other player.  
   - In singleplayer: roses can be used for cosmetics without needing to send them.  
 
 - ☁️ **Cosmetics Sharing**:  
@@ -96,10 +96,10 @@ This mod is still in development and is not yet available for installation.
 
 ### 🛒 Cosmetics Shop
 
-- [ ] Define a list of available cosmetics (placeholders at first).  
-- [ ] Allow purchases with roses.  
-- [ ] Decrease the rose counter when buying.  
-- [ ] Store purchased cosmetics in a dedicated inventory.  
+- [x] Define a list of available cosmetics (placeholders at first).  
+- [x] Allow purchases with roses.  
+- [x] Decrease the rose counter when buying.  
+- [x] Store purchased cosmetics in a dedicated inventory.  
 
 ### 👕 Cosmetics
 

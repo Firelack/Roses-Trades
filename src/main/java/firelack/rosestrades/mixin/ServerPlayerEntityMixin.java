@@ -1,7 +1,14 @@
 package firelack.rosestrades.mixin;
 
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
+import net.minecraft.nbt.NbtList;
+import net.minecraft.nbt.NbtString;
 import net.minecraft.server.network.ServerPlayerEntity;
+
+import java.util.HashSet;
+import java.util.Set;
+
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -47,5 +54,40 @@ public abstract class ServerPlayerEntityMixin implements ServerPlayerEntityMixin
         } else {
         specialRoseCount = Math.max(0, specialRoseCount - amount);
         }
+    }
+
+    @Unique
+    private final Set<String> cosmetics = new HashSet<>();
+
+    @Inject(method = "writeCustomDataToNbt", at = @At("RETURN"))
+    private void writeData(NbtCompound nbt, CallbackInfo ci) {
+        nbt.putInt("SpecialRoseCount", specialRoseCount);
+
+        NbtList list = new NbtList();
+        for (String c : cosmetics) {
+            list.add(NbtString.of(c));
+        }
+        nbt.put("Cosmetics", list);
+    }
+
+    @Inject(method = "readCustomDataFromNbt", at = @At("RETURN"))
+    private void readData(NbtCompound nbt, CallbackInfo ci) {
+        specialRoseCount = nbt.getInt("SpecialRoseCount");
+
+        cosmetics.clear();
+        NbtList list = nbt.getList("Cosmetics", NbtElement.STRING_TYPE);
+        for (int i = 0; i < list.size(); i++) {
+            cosmetics.add(list.getString(i));
+        }
+    }
+
+    @Override
+    public Set<String> getCosmetics() {
+        return new HashSet<>(cosmetics);
+    }
+
+    @Override
+    public void addCosmetic(String id) {
+        cosmetics.add(id);
     }
 }

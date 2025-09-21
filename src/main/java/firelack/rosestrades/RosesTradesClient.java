@@ -1,8 +1,12 @@
 package firelack.rosestrades;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import firelack.rosestrades.block.ModBlocks;
 import firelack.rosestrades.client.ModKeyBindings;
 import firelack.rosestrades.client.gui.CustomMenuScreen;
+import firelack.rosestrades.network.CosmeticsPayload;
 import firelack.rosestrades.network.RoseCountPayload;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -17,6 +21,7 @@ import net.minecraft.client.render.RenderLayer;
 public class RosesTradesClient implements ClientModInitializer {
 
     public static int clientRoseCount = 0;
+    public static Set<String> clientCosmetics = new HashSet<>();
 
     @Override
     public void onInitializeClient() {
@@ -36,6 +41,14 @@ public class RosesTradesClient implements ClientModInitializer {
             (payload, context) -> {
                 // Update the client-side rose count when the packet is received
                 clientRoseCount = payload.count();
+            });
+
+        // Register cosmetics packet
+        PayloadTypeRegistry.playS2C().register(CosmeticsPayload.ID, CosmeticsPayload.CODEC);
+
+        ClientPlayNetworking.registerGlobalReceiver(CosmeticsPayload.ID,
+            (payload, context) -> {
+                clientCosmetics = payload.cosmetics();
             });
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
