@@ -25,6 +25,7 @@ import net.minecraft.util.Util;
 public class CustomMenuScreen extends Screen {
 
     private TextFieldWidget amountField; // Field for amount of roses to give
+    private TextFieldWidget searchField; // Field for searching cosmetics
     private Rectangle githubLinkArea; // Area for the GitHub link
 
     // Shop instance
@@ -101,6 +102,13 @@ public class CustomMenuScreen extends Screen {
         int columnX = this.width - buttonWidth - rightMargin;
         int startY = topBarHeight + 20; 
         int spacing = 25;
+
+        this.searchField = new TextFieldWidget(
+            this.textRenderer, columnX, startY, buttonWidth, buttonHeight, Text.literal("Search"));
+        this.searchField.setPlaceholder(Text.literal("Search..."));
+        this.searchField.setEditable(true);
+        this.searchField.setDrawsBackground(true);
+        this.addDrawableChild(this.searchField);
 
         this.addDrawableChild(ButtonWidget.builder(Text.literal("Shop"), b -> switchPage(Page.SHOP))
             .dimensions(columnX, startY + spacing, buttonWidth, buttonHeight).build());

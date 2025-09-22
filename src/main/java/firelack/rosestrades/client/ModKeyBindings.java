@@ -14,8 +14,8 @@ public class ModKeyBindings {
         OPEN_MENU = new KeyBinding(
                 "key.rosestrades.open_menu", // id
                 InputUtil.Type.KEYSYM,
-                GLFW.GLFW_KEY_M,             // par défaut: touche M
-                "category.rosestrades.keys"  // catégorie dans les options
+                GLFW.GLFW_KEY_M,             // M as default key
+                "category.rosestrades.keys"  // category
         );
 
         net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper.registerKeyBinding(OPEN_MENU);
