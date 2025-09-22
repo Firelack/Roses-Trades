@@ -32,7 +32,7 @@ public class CustomMenuScreen extends Screen {
 
     // Pages enum
     public enum Page {
-        SEARCH, SHOP, INVENTORY, MORE, IMPORT
+        SHOP, INVENTORY, MORE, IMPORT
     }
 
     private Page currentPage = Page.SHOP; // Default page
@@ -101,9 +101,6 @@ public class CustomMenuScreen extends Screen {
         int columnX = this.width - buttonWidth - rightMargin;
         int startY = topBarHeight + 20; 
         int spacing = 25;
-
-        this.addDrawableChild(ButtonWidget.builder(Text.literal("Search"), b -> switchPage(Page.SEARCH))
-            .dimensions(columnX, startY, buttonWidth, buttonHeight).build());
 
         this.addDrawableChild(ButtonWidget.builder(Text.literal("Shop"), b -> switchPage(Page.SHOP))
             .dimensions(columnX, startY + spacing, buttonWidth, buttonHeight).build());
@@ -214,7 +211,6 @@ public class CustomMenuScreen extends Screen {
         int y = boxTop + 10;
 
         switch (currentPage) {
-            case SEARCH -> y = drawTextInBox(context, "Page🌹😭 to delete to make a search box on the button", boxLeft, boxRight, y, 0xFFFFFF);
             case SHOP -> y = drawTextInBox(context, "Boutique des cosmétiques", boxLeft, boxRight, y, 0xFFFF55);
             case INVENTORY -> y = drawTextInBox(context, "Inventaire du joueur", boxLeft, boxRight, y, 0x55FF55);
             case MORE -> {
@@ -268,7 +264,7 @@ public class CustomMenuScreen extends Screen {
         }
 
         // Close on custom key
-        if (ModKeyBindings.OPEN_MENU.matchesKey(keyCode, scanCode)) {
+        if (ModKeyBindings.OPEN_MENU.matchesKey(keyCode, scanCode) && !this.amountField.isFocused()) {
             this.close();
             return true;
         }
