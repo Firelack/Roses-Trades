@@ -14,5 +14,13 @@
   "message.rosestrades.spend.fail": "§cYou don't have enough roses to spend %s.",
 
   "key.rosestrades.open_menu": "Open Menu",
-  "category.rosestrades.keys": "Rose Trades"
+  "category.rosestrades.keys": "Rose Trades",
+
+  "rosestrades.menu.shop": "Cosmetics Shop",
+  "rosestrades.menu.inventory": "Player Inventory",
+  "rosestrades.menu.more.welcome": "Welcome to Roses Trades, a Minecraft mod created by Firelack. 🌹",
+  "rosestrades.menu.more.focus": "This mod focuses on collecting and trading special roses to unlock unique cosmetics.",
+  "rosestrades.menu.more.spawn": "Roses spawn in specific biomes and increase your rose counter instead of dropping as items.",
+  "rosestrades.menu.more.menu_features": "The menu will allow you to track your rose counter, spawn physical roses, craft bouquets, and access the shop and cosmetics inventory.",
+  "rosestrades.menu.more.future": "Future features include buying cosmetics, equipping them, sharing custom cosmetics in multiplayer, and tracking achievements."
 }

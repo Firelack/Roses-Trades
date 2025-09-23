@@ -38,13 +38,29 @@ public class CustomMenuScreen extends Screen {
 
     private Page currentPage = Page.SHOP; // Default page
 
-    // Method to draw text in a box with word wrapping and centering
+    // Version existante pour String (tu la gardes pour compatibilité)
     private int drawTextInBox(DrawContext context, String texte, int boxLeft, int boxRight, int startY, int color) {
         int textXCenter = (boxLeft + boxRight) / 2;
         int boxWidth = boxRight - boxLeft - 20;
         int y = startY;
 
         for (OrderedText line : this.textRenderer.wrapLines(Text.literal(texte), boxWidth)) {
+            int lineWidth = this.textRenderer.getWidth(line);
+            int x = textXCenter - (lineWidth / 2);
+            context.drawTextWithShadow(this.textRenderer, line, x, y, color);
+            y += 12; // Line height
+        }
+
+        return y; // Return the new Y position after drawing
+    }
+
+    // Nouvelle version pour Text (supporte translatable + style JSON)
+    private int drawTextInBox(DrawContext context, Text texte, int boxLeft, int boxRight, int startY, int color) {
+        int textXCenter = (boxLeft + boxRight) / 2;
+        int boxWidth = boxRight - boxLeft - 20;
+        int y = startY;
+
+        for (OrderedText line : this.textRenderer.wrapLines(texte, boxWidth)) {
             int lineWidth = this.textRenderer.getWidth(line);
             int x = textXCenter - (lineWidth / 2);
             context.drawTextWithShadow(this.textRenderer, line, x, y, color);
@@ -219,15 +235,14 @@ public class CustomMenuScreen extends Screen {
         int y = boxTop + 10;
 
         switch (currentPage) {
-            case SHOP -> y = drawTextInBox(context, "Boutique des cosmétiques", boxLeft, boxRight, y, 0xFFFF55);
-            case INVENTORY -> y = drawTextInBox(context, "Inventaire du joueur", boxLeft, boxRight, y, 0x55FF55);
+            case SHOP -> y = drawTextInBox(context, Text.translatable("rosestrades.menu.shop"), boxLeft, boxRight, y, 0xFFFF55);
+            case INVENTORY -> y = drawTextInBox(context, Text.translatable("rosestrades.menu.inventory"), boxLeft, boxRight, y, 0x55FF55);
             case MORE -> {
-                // Text description
-                y = drawTextInBox(context, "Welcome to Roses Trades, a Minecraft mod created by Firelack. 🌹", boxLeft, boxRight, y, 0xFFFFFF);
-                y = drawTextInBox(context, "This mod focuses on collecting and trading special roses to unlock unique cosmetics.", boxLeft, boxRight, y, 0xAAAAAA);
-                y = drawTextInBox(context, "Roses spawn in specific biomes and increase your rose counter instead of dropping as items.", boxLeft, boxRight, y, 0xAAAAAA);
-                y = drawTextInBox(context, "The menu will allow you to track your rose counter, spawn physical roses, craft bouquets, and access the shop and cosmetics inventory.", boxLeft, boxRight, y, 0xAAAAAA);
-                y = drawTextInBox(context, "Future features include buying cosmetics, equipping them, sharing custom cosmetics in multiplayer, and tracking achievements.", boxLeft, boxRight, y, 0xAAAAAA);
+                y = drawTextInBox(context, Text.translatable("rosestrades.menu.more.welcome"), boxLeft, boxRight, y, 0xFFFFFF);
+                y = drawTextInBox(context, Text.translatable("rosestrades.menu.more.focus"), boxLeft, boxRight, y, 0xAAAAAA);
+                y = drawTextInBox(context, Text.translatable("rosestrades.menu.more.spawn"), boxLeft, boxRight, y, 0xAAAAAA);
+                y = drawTextInBox(context, Text.translatable("rosestrades.menu.more.menu_features"), boxLeft, boxRight, y, 0xAAAAAA);
+                y = drawTextInBox(context, Text.translatable("rosestrades.menu.more.future"), boxLeft, boxRight, y, 0xAAAAAA);
 
                 y += 10; // Space before the link
 
