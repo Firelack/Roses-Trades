@@ -38,23 +38,7 @@ public class CustomMenuScreen extends Screen {
 
     private Page currentPage = Page.SHOP; // Default page
 
-    // Version existante pour String (tu la gardes pour compatibilité)
-    private int drawTextInBox(DrawContext context, String texte, int boxLeft, int boxRight, int startY, int color) {
-        int textXCenter = (boxLeft + boxRight) / 2;
-        int boxWidth = boxRight - boxLeft - 20;
-        int y = startY;
-
-        for (OrderedText line : this.textRenderer.wrapLines(Text.literal(texte), boxWidth)) {
-            int lineWidth = this.textRenderer.getWidth(line);
-            int x = textXCenter - (lineWidth / 2);
-            context.drawTextWithShadow(this.textRenderer, line, x, y, color);
-            y += 12; // Line height
-        }
-
-        return y; // Return the new Y position after drawing
-    }
-
-    // Nouvelle version pour Text (supporte translatable + style JSON)
+    // Helper method to draw centered text in a box with wrapping
     private int drawTextInBox(DrawContext context, Text texte, int boxLeft, int boxRight, int startY, int color) {
         int textXCenter = (boxLeft + boxRight) / 2;
         int boxWidth = boxRight - boxLeft - 20;
@@ -71,7 +55,7 @@ public class CustomMenuScreen extends Screen {
     }
 
     public CustomMenuScreen(int initialCount) {
-        super(Text.literal("Menu Roses"));
+        super(Text.translatable("rosestrades.menu.roses_menu"));
     }
 
     @Override
@@ -91,7 +75,7 @@ public class CustomMenuScreen extends Screen {
             3, // y
             40, // width
             20, // height
-            Text.literal("Amount")
+            Text.translatable("rosestrades.menu.amount")
         );
         this.amountField.setText("1");
         this.amountField.setPlaceholder(Text.literal("1"));
@@ -100,7 +84,7 @@ public class CustomMenuScreen extends Screen {
         this.addDrawableChild(this.amountField);
 
         // Bouton "Give Roses"
-        this.addDrawableChild(ButtonWidget.builder(Text.literal("Give Roses"), b -> {
+        this.addDrawableChild(ButtonWidget.builder(Text.translatable("rosestrades.menu.give_roses"), b -> {
             if (client != null && client.player != null) {
                 String text = this.amountField.getText();
                 int amount = 1;
@@ -120,22 +104,22 @@ public class CustomMenuScreen extends Screen {
         int spacing = 25;
 
         this.searchField = new TextFieldWidget(
-            this.textRenderer, columnX, startY, buttonWidth, buttonHeight, Text.literal("Search"));
-        this.searchField.setPlaceholder(Text.literal("Search..."));
+            this.textRenderer, columnX, startY, buttonWidth, buttonHeight, Text.translatable("rosestrades.menu.search"));
+        this.searchField.setPlaceholder(Text.translatable("rosestrades.menu.search"));
         this.searchField.setEditable(true);
         this.searchField.setDrawsBackground(true);
         this.addDrawableChild(this.searchField);
 
-        this.addDrawableChild(ButtonWidget.builder(Text.literal("Shop"), b -> switchPage(Page.SHOP))
+        this.addDrawableChild(ButtonWidget.builder(Text.translatable("rosestrades.menu.page.shop"), b -> switchPage(Page.SHOP))
             .dimensions(columnX, startY + spacing, buttonWidth, buttonHeight).build());
 
-        this.addDrawableChild(ButtonWidget.builder(Text.literal("Inventory"), b -> switchPage(Page.INVENTORY))
+        this.addDrawableChild(ButtonWidget.builder(Text.translatable("rosestrades.menu.page.inventory"), b -> switchPage(Page.INVENTORY))
             .dimensions(columnX, startY + spacing * 2, buttonWidth, buttonHeight).build());
 
-        this.addDrawableChild(ButtonWidget.builder(Text.literal("More"), b -> switchPage(Page.MORE))
+        this.addDrawableChild(ButtonWidget.builder(Text.translatable("rosestrades.menu.page.more"), b -> switchPage(Page.MORE))
             .dimensions(columnX, startY + spacing * 3, buttonWidth, buttonHeight).build());
 
-        this.addDrawableChild(ButtonWidget.builder(Text.literal("Import"), b -> switchPage(Page.IMPORT))
+        this.addDrawableChild(ButtonWidget.builder(Text.translatable("rosestrades.menu.page.import"), b -> switchPage(Page.IMPORT))
             .dimensions(columnX, startY + spacing * 4, buttonWidth, buttonHeight).build());
 
         // Middle box content based on current page
@@ -157,13 +141,13 @@ public class CustomMenuScreen extends Screen {
 
                     ButtonWidget button = ButtonWidget.builder(
                         owned
-                            ? Text.literal("Déjà acheté: " + c.getName())
-                            : Text.literal(c.getName() + " (" + c.getPrice() + " roses)"),
+                            ? Text.translatable("rosestrades.menu.purchase.already", c.getName() )
+                            : Text.translatable("rosestrades.menu.purchase.price", c.getName(), c.getPrice() ),
                         b -> {
                             if (!owned) {
-                                // Envoie la requête d'achat au serveur
+                                // Send purchase request to server
                                 ClientPlayNetworking.send(new BuyCosmeticPayload(c.getId()));
-                                b.setMessage(Text.literal("Déjà acheté: " + c.getName()));
+                                b.setMessage(Text.translatable("rosestrades.menu.purchase.already", c.getName() ));
                                 b.active = false; // Desactivate after purchase
                             }
                         }
@@ -180,8 +164,8 @@ public class CustomMenuScreen extends Screen {
                     Cosmetic c = CosmeticRegistry.get(id);
                     if (c != null) {
                         this.addDrawableChild(ButtonWidget.builder(
-                            Text.literal("Équiper: " + c.getName()),
-                            button -> System.out.println("Équipé: " + c.getName())
+                            Text.translatable("rosestrades.menu.inventory.nequipped", c.getName() ),
+                            button -> System.out.println(Text.translatable("rosestrades.menu.inventory.equipped", c.getName() ))
                         ).dimensions(boxLeft + 10, y, (boxRight - boxLeft) - 20, 20).build());
                         y += 25;
                     }
@@ -247,7 +231,7 @@ public class CustomMenuScreen extends Screen {
                 y += 10; // Space before the link
 
                 // GitHub link
-                Text githubLink = Text.literal("→ GitHub Project")
+                Text githubLink = Text.translatable("rosestrades.menu.more.github")
                         .setStyle(Style.EMPTY.withUnderline(true).withColor(Formatting.AQUA)
                                 .withClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://github.com/Firelack/Roses-Trades")));
                 List<OrderedText> wrappedLink = this.textRenderer.wrapLines(githubLink, boxRight - boxLeft - 20);
@@ -263,11 +247,11 @@ public class CustomMenuScreen extends Screen {
                 // Save the clickable area for the link
                 githubLinkArea = new Rectangle(linkX - this.textRenderer.getWidth(githubLink) / 2, y, this.textRenderer.getWidth(githubLink), wrappedLink.size() * 12);
             }
-            case IMPORT -> y = drawTextInBox(context, "Future import function", boxLeft, boxRight, y, 0xAAAAFF);
+            case IMPORT -> y = drawTextInBox(context, Text.translatable("rosestrades.menu.import.info"), boxLeft, boxRight, y, 0xAAAAFF);
         }
 
         // Signature
-        String signature = "by Firelack";
+        Text signature = Text.translatable("rosestrades.menu.signature");
         int sigWidth = this.textRenderer.getWidth(signature);
         context.drawTextWithShadow(this.textRenderer, signature, this.width - sigWidth - 5, this.height - 12, 0x808080);
     }

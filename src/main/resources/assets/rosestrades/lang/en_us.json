@@ -22,5 +22,22 @@
   "rosestrades.menu.more.focus": "This mod focuses on collecting and trading special roses to unlock unique cosmetics.",
   "rosestrades.menu.more.spawn": "Roses spawn in specific biomes and increase your rose counter instead of dropping as items.",
   "rosestrades.menu.more.menu_features": "The menu will allow you to track your rose counter, spawn physical roses, craft bouquets, and access the shop and cosmetics inventory.",
-  "rosestrades.menu.more.future": "Future features include buying cosmetics, equipping them, sharing custom cosmetics in multiplayer, and tracking achievements."
+  "rosestrades.menu.more.future": "Future features include buying cosmetics, equipping them, sharing custom cosmetics in multiplayer, and tracking achievements.",
+  "rosestrades.menu.roses_menu": "Roses Menu",
+  "rosestrades.menu.amount": "Amount",
+  "rosestrades.menu.give_roses": "Give Roses",
+  "rosestrades.menu.search": "Search",
+  "rosestrades.menu.page.shop": "Shop",
+  "rosestrades.menu.page.inventory": "Inventory",
+  "rosestrades.menu.page.more": "More Info",
+  "rosestrades.menu.page.import": "Import",
+
+  "rosestrades.menu.purchase.already": "Already purchased : %s",
+  "rosestrades.menu.purchase.price": "%s (%s roses)",
+  "rosestrades.menu.inventory.nequipped": "Not equipped: %s",
+  "rosestrades.menu.inventory.equipped": "Equipped: %s",
+  "rosestrades.menu.more.github": "GitHub Repository",
+  "rosestrades.menu.import.info": "Futur feature: Import custom cosmetics from a JSON file.",
+  "rosestrades.menu.signature": "by Firelack"
+
 }
