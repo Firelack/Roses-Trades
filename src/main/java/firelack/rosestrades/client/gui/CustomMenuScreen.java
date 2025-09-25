@@ -256,9 +256,40 @@ public class CustomMenuScreen extends Screen {
         context.drawTextWithShadow(this.textRenderer, signature, this.width - sigWidth - 5, this.height - 12, 0x808080);
     }
 
+    // Validate and correct the amount field input
+    private void validateAmountField() {
+        String text = this.amountField.getText();
+
+        // vide → remettre 1
+        if (text.isEmpty()) {
+            this.amountField.setText("1");
+            return;
+        }
+
+        try {
+            int value = Integer.parseInt(text);
+            int stock = RosesTradesClient.clientRoseCount;
+            int max = Math.min(999, stock); // maximum 999 or stock
+
+            if (value < 1) {
+                this.amountField.setText("1");
+            } else if (value > max) {
+                this.amountField.setText(String.valueOf(max));
+            }
+        } catch (NumberFormatException e) {
+            this.amountField.setText("1");
+        }
+    }
+
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        if (this.amountField.keyPressed(keyCode, scanCode, modifiers)) return true;
+        if (this.amountField.keyPressed(keyCode, scanCode, modifiers)) {
+            validateAmountField();
+            return true;
+        }
+        if (this.searchField.keyPressed(keyCode, scanCode, modifiers)) {
+            return true;
+        }
 
         if (keyCode == 256) { // ESC
             if (this.amountField.isFocused()) {
@@ -271,7 +302,7 @@ public class CustomMenuScreen extends Screen {
         }
 
         // Close on custom key
-        if (ModKeyBindings.OPEN_MENU.matchesKey(keyCode, scanCode) && !this.amountField.isFocused()) {
+        if (ModKeyBindings.OPEN_MENU.matchesKey(keyCode, scanCode) && !this.amountField.isFocused() && !this.searchField.isFocused()) {
             this.close();
             return true;
         }
@@ -281,25 +312,40 @@ public class CustomMenuScreen extends Screen {
 
     @Override
     public boolean charTyped(char chr, int modifiers) {
-        // Basic input validation: only digits
-        if (Character.isDigit(chr)) {
-            return this.amountField.charTyped(chr, modifiers);
+        // amountField : only digits
+        if (this.amountField.isFocused() && Character.isDigit(chr)) {
+            boolean result = this.amountField.charTyped(chr, modifiers);
+            validateAmountField();
+            return result;
+        }
+        // searchField : any character
+        if (this.searchField.isFocused()) {
+            return this.searchField.charTyped(chr, modifiers);
         }
         return false;
     }
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        // Clic on the text field
+        // Click on amountField
         if (this.amountField.mouseClicked(mouseX, mouseY, button)) {
             this.amountField.setFocused(true);
             return true;
         }
 
-        // If clicking outside the text field, unfocus it
+        // Click on searchField
+        if (this.searchField.mouseClicked(mouseX, mouseY, button)) {
+            this.searchField.setFocused(true);
+            return true;
+        }
+
+        // If clicking outside the fields, unfocus them
         if (this.amountField.isFocused()) {
             if (this.amountField.getText().isEmpty()) this.amountField.setText("1");
             this.amountField.setFocused(false);
+        }
+        if (this.searchField.isFocused()) {
+            this.searchField.setFocused(false);
         }
 
         // Verify if the click is on the GitHub link
