@@ -40,6 +40,9 @@ The system is inspired by the trading mechanics of the game [Wolvesville](https:
   - Displays the rose counter.  
   - Option to **spawn physical roses** (cannot be re-added to the counter).  
   - Craft **bouquets** (decorative items for pots/frames).
+  - Access to a **shop** and a **cosmetics inventory**.  
+- 🛒 **Cosmetics Shop**:  
+  - Use roses as currency.
 - **Features are in progress**
 
 ## ☑️ Installation
@@ -54,11 +57,7 @@ This mod is still in development and is not yet available for installation.
 
 ## ✨ Planned Features
 
-- 🎁 **Mod Menu**:  
-  - Access to a **shop** and a **cosmetics inventory**.  
-
 - 🛒 **Cosmetics Shop**:  
-  - Use roses as currency.  
   - Various cosmetics: hats, capes, skins rendered above armor (with an option to hide armor).  
 
 - 🌍 **Multiplayer & Singleplayer**:  
@@ -90,7 +89,7 @@ This mod is still in development and is not yet available for installation.
 - [x] Add item and crafting recipe for **bouquets** (decorative item).
 - [x] Add block (and potted_bouquet) for decorative bouquets.
 - [x] Tabs: Shop / Cosmetics Inventory.
-- [ ] Finish More page (clickable link).
+- [ ] Add confirmation on clickable link.
 - [ ] Add a real Search zone.
 - [x] Language compatibility.
 

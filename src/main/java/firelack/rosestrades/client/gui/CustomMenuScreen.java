@@ -27,6 +27,7 @@ public class CustomMenuScreen extends Screen {
     private TextFieldWidget amountField; // Field for amount of roses to give
     private TextFieldWidget searchField; // Field for searching cosmetics
     private Rectangle githubLinkArea; // Area for the GitHub link
+    private Rectangle signatureLinkArea; // Area for the signature link
 
     // Shop instance
     private final CosmeticShop shop = new CosmeticShop();
@@ -251,9 +252,16 @@ public class CustomMenuScreen extends Screen {
         }
 
         // Signature
-        Text signature = Text.translatable("rosestrades.menu.signature");
+        Text signature = Text.translatable("rosestrades.menu.signature")
+                .setStyle(Style.EMPTY.withUnderline(true).withColor(Formatting.GRAY));
         int sigWidth = this.textRenderer.getWidth(signature);
-        context.drawTextWithShadow(this.textRenderer, signature, this.width - sigWidth - 5, this.height - 12, 0x808080);
+        int sigX = this.width - sigWidth - 5;
+        int sigY = this.height - 12;
+
+        context.drawTextWithShadow(this.textRenderer, signature, sigX, sigY, 0x808080);
+
+        // Save the clickable area for the signature link
+        signatureLinkArea = new Rectangle(sigX, sigY, sigWidth, 12);
     }
 
     // Validate and correct the amount field input
@@ -351,6 +359,12 @@ public class CustomMenuScreen extends Screen {
         // Verify if the click is on the GitHub link
         if (currentPage == Page.MORE && githubLinkArea != null && githubLinkArea.contains((int) mouseX, (int) mouseY)) {
             Util.getOperatingSystem().open("https://github.com/Firelack/Roses-Trades");
+            return true;
+        }
+
+        // Verify if the click is on the signature link
+        if (signatureLinkArea != null && signatureLinkArea.contains((int) mouseX, (int) mouseY)) {
+            Util.getOperatingSystem().open("https://github.com/Firelack");
             return true;
         }
 
