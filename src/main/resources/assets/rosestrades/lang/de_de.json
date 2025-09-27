@@ -1,15 +1,42 @@
 {
   "block.rosestrades.rose": "Rose",
-  "block.rosestrades.special_rose": "Spezialrose",
+  "block.rosestrades.special_rose": "Spezielle Rose",
   "block.rosestrades.bouquet": "Blumenstrauß",
 
   "message.rosestrades.rose_count": "Gesamtrosen: %s",
   "message.rosestrades.cant_place": "Du kannst diese Rose im Überlebensmodus nicht platzieren.",
   "message.rosestrades.break_special_rose": "Du hast %s Rosen zerstört.",
   "message.rosestrades.offset_hight": "Versatz zu groß, zeige stattdessen die Top 5.",
-  "message.rosestrades.ranking": "=== Rosen-Rangliste ( %s - %s ) ===",
+  "message.rosestrades.ranking": "=== Rangliste der Rosen ( %s - %s ) ===",
   "message.rosestrades.rank": "Dein Rang: #%s mit %s Rosen.",
 
-  "message.rosestrades.spend.success": "§aDu hast %s Rosen ausgegeben und deine Items erhalten!",
-  "message.rosestrades.spend.fail": "§cDu hast nicht genug Rosen, um %s auszugeben."
+  "message.rosestrades.spend.success": "§aDu hast %s Rosen ausgegeben und deine Gegenstände erhalten!",
+  "message.rosestrades.spend.fail": "§cDu hast nicht genug Rosen, um %s auszugeben.",
+
+  "key.rosestrades.open_menu": "Menü öffnen",
+  "category.rosestrades.keys": "Rosenhandel",
+
+  "rosestrades.menu.shop": "Kosmetik-Shop",
+  "rosestrades.menu.inventory": "Spieler-Inventar",
+  "rosestrades.menu.more.welcome": "Willkommen bei Roses Trades, einem Minecraft-Mod von Firelack. 🌹",
+  "rosestrades.menu.more.focus": "Dieser Mod konzentriert sich auf das Sammeln und Handeln spezieller Rosen, um einzigartige Kosmetika freizuschalten.",
+  "rosestrades.menu.more.spawn": "Rosen erscheinen in bestimmten Biomen und erhöhen deinen Rosen-Zähler anstelle von Gegenständen.",
+  "rosestrades.menu.more.menu_features": "Das Menü ermöglicht es dir, deinen Rosen-Zähler zu verfolgen, physische Rosen zu spawnen, Sträuße zu craften und auf den Shop und das Kosmetik-Inventar zuzugreifen.",
+  "rosestrades.menu.more.future": "Zukünftige Funktionen beinhalten den Kauf von Kosmetika, das Ausrüsten, das Teilen benutzerdefinierter Kosmetika im Multiplayer und das Verfolgen von Erfolgen.",
+  "rosestrades.menu.roses_menu": "Rosen-Menü",
+  "rosestrades.menu.amount": "Menge",
+  "rosestrades.menu.give_roses": "Rosen geben",
+  "rosestrades.menu.search": "Suche",
+  "rosestrades.menu.page.shop": "Shop",
+  "rosestrades.menu.page.inventory": "Inventar",
+  "rosestrades.menu.page.more": "Mehr Infos",
+  "rosestrades.menu.page.import": "Importieren",
+
+  "rosestrades.menu.purchase.already": "Bereits gekauft: %s",
+  "rosestrades.menu.purchase.price": "%s (%s Rosen)",
+  "rosestrades.menu.inventory.nequipped": "Nicht ausgerüstet: %s",
+  "rosestrades.menu.inventory.equipped": "Ausgerüstet: %s",
+  "rosestrades.menu.more.github": "GitHub-Repository",
+  "rosestrades.menu.import.info": "Zukünftige Funktion: Benutzerdefinierte Kosmetika aus einer JSON-Datei importieren.",
+  "rosestrades.menu.signature": "von Firelack"
 }

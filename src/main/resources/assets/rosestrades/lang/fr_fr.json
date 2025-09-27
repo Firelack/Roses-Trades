@@ -1,15 +1,42 @@
 {
-    "block.rosestrades.rose": "Rose",
-    "block.rosestrades.special_rose": "Rose Spéciale",
-    "block.rosestrades.bouquet": "Bouquet",
-    
-    "message.rosestrades.rose_count": "Total de roses : %s",
-    "message.rosestrades.cant_place": "Vous ne pouvez pas placer cette rose en survie.",
-    "message.rosestrades.break_special_rose": "Tu as cassé %s roses.",
-    "message.rosestrades.offset_hight": "Offset trop grand, affichage du top 5 à la place.",
-    "message.rosestrades.ranking": "=== Classement des Roses ( %s - %s ) ===",
-    "message.rosestrades.rank": "Ton rang : #%s avec %s roses.",
+  "block.rosestrades.rose": "Rose",
+  "block.rosestrades.special_rose": "Rose spéciale",
+  "block.rosestrades.bouquet": "Bouquet",
 
-    "message.rosestrades.spend.success": "§aVous avez dépensé %s roses et reçu vos items !",
-    "message.rosestrades.spend.fail": "§cVous n'avez pas assez de roses pour en dépenser %s."
+  "message.rosestrades.rose_count": "Total de roses : %s",
+  "message.rosestrades.cant_place": "Vous ne pouvez pas placer cette rose en survie.",
+  "message.rosestrades.break_special_rose": "Vous avez cassé %s roses.",
+  "message.rosestrades.offset_hight": "Décalage trop grand, affichage du top 5 à la place.",
+  "message.rosestrades.ranking": "=== Classement des Roses ( %s - %s ) ===",
+  "message.rosestrades.rank": "Votre rang : #%s avec %s roses.",
+
+  "message.rosestrades.spend.success": "§aVous avez dépensé %s roses et reçu vos objets !",
+  "message.rosestrades.spend.fail": "§cVous n'avez pas assez de roses pour dépenser %s.",
+
+  "key.rosestrades.open_menu": "Ouvrir le menu",
+  "category.rosestrades.keys": "Échanges de Roses",
+
+  "rosestrades.menu.shop": "Boutique de cosmétiques",
+  "rosestrades.menu.inventory": "Inventaire du joueur",
+  "rosestrades.menu.more.welcome": "Bienvenue dans Roses Trades, un mod Minecraft créé par Firelack. 🌹",
+  "rosestrades.menu.more.focus": "Ce mod est centré sur la collecte et l'échange de roses spéciales pour débloquer des cosmétiques uniques.",
+  "rosestrades.menu.more.spawn": "Les roses apparaissent dans certains biomes et augmentent votre compteur de roses au lieu de tomber en objets.",
+  "rosestrades.menu.more.menu_features": "Le menu vous permet de suivre votre compteur de roses, de faire apparaître des roses physiques, de créer des bouquets, et d'accéder à la boutique et à l'inventaire de cosmétiques.",
+  "rosestrades.menu.more.future": "Les futures fonctionnalités incluent l'achat de cosmétiques, leur équipement, le partage de cosmétiques personnalisés en multijoueur et le suivi des succès.",
+  "rosestrades.menu.roses_menu": "Menu des Roses",
+  "rosestrades.menu.amount": "Quantité",
+  "rosestrades.menu.give_roses": "Donner des Roses",
+  "rosestrades.menu.search": "Rechercher",
+  "rosestrades.menu.page.shop": "Boutique",
+  "rosestrades.menu.page.inventory": "Inventaire",
+  "rosestrades.menu.page.more": "Plus d'infos",
+  "rosestrades.menu.page.import": "Importer",
+
+  "rosestrades.menu.purchase.already": "Déjà acheté : %s",
+  "rosestrades.menu.purchase.price": "%s (%s roses)",
+  "rosestrades.menu.inventory.nequipped": "Non équipé : %s",
+  "rosestrades.menu.inventory.equipped": "Équipé : %s",
+  "rosestrades.menu.more.github": "Dépôt GitHub",
+  "rosestrades.menu.import.info": "Fonctionnalité future : Importer des cosmétiques personnalisés depuis un fichier JSON.",
+  "rosestrades.menu.signature": "par Firelack"
 }

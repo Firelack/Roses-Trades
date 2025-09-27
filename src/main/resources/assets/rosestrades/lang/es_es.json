@@ -6,10 +6,37 @@
   "message.rosestrades.rose_count": "Rosas totales: %s",
   "message.rosestrades.cant_place": "No puedes colocar esta rosa en supervivencia.",
   "message.rosestrades.break_special_rose": "Has roto %s rosas.",
-  "message.rosestrades.offset_hight": "Desplazamiento demasiado grande, mostrando las 5 mejores en su lugar.",
+  "message.rosestrades.offset_hight": "Desplazamiento demasiado grande, mostrando el top 5 en su lugar.",
   "message.rosestrades.ranking": "=== Clasificación de las Rosas ( %s - %s ) ===",
   "message.rosestrades.rank": "Tu rango: #%s con %s rosas.",
 
-  "message.rosestrades.spend.success": "§aHas gastado %s rosas y recibido tus objetos!",
-  "message.rosestrades.spend.fail": "§cNo tienes suficientes rosas para gastar %s."
+  "message.rosestrades.spend.success": "§a¡Has gastado %s rosas y recibido tus objetos!",
+  "message.rosestrades.spend.fail": "§cNo tienes suficientes rosas para gastar %s.",
+
+  "key.rosestrades.open_menu": "Abrir Menú",
+  "category.rosestrades.keys": "Intercambio de Rosas",
+
+  "rosestrades.menu.shop": "Tienda de cosméticos",
+  "rosestrades.menu.inventory": "Inventario del jugador",
+  "rosestrades.menu.more.welcome": "Bienvenido a Roses Trades, un mod de Minecraft creado por Firelack. 🌹",
+  "rosestrades.menu.more.focus": "Este mod se centra en recolectar e intercambiar rosas especiales para desbloquear cosméticos únicos.",
+  "rosestrades.menu.more.spawn": "Las rosas aparecen en biomas específicos y aumentan tu contador de rosas en lugar de soltar objetos.",
+  "rosestrades.menu.more.menu_features": "El menú te permitirá seguir tu contador de rosas, generar rosas físicas, crear ramos y acceder a la tienda y al inventario de cosméticos.",
+  "rosestrades.menu.more.future": "Las futuras características incluyen comprar cosméticos, equiparlos, compartir cosméticos personalizados en multijugador y seguir logros.",
+  "rosestrades.menu.roses_menu": "Menú de Rosas",
+  "rosestrades.menu.amount": "Cantidad",
+  "rosestrades.menu.give_roses": "Dar Rosas",
+  "rosestrades.menu.search": "Buscar",
+  "rosestrades.menu.page.shop": "Tienda",
+  "rosestrades.menu.page.inventory": "Inventario",
+  "rosestrades.menu.page.more": "Más Info",
+  "rosestrades.menu.page.import": "Importar",
+
+  "rosestrades.menu.purchase.already": "Ya comprado: %s",
+  "rosestrades.menu.purchase.price": "%s (%s rosas)",
+  "rosestrades.menu.inventory.nequipped": "No equipado: %s",
+  "rosestrades.menu.inventory.equipped": "Equipado: %s",
+  "rosestrades.menu.more.github": "Repositorio en GitHub",
+  "rosestrades.menu.import.info": "Función futura: Importar cosméticos personalizados desde un archivo JSON.",
+  "rosestrades.menu.signature": "por Firelack"
 }

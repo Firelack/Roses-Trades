@@ -1,15 +1,42 @@
 {
   "block.rosestrades.rose": "Rosa",
-  "block.rosestrades.special_rose": "Rosa Speciale",
-  "block.rosestrades.bouquet": "Mazzo di Fiori",
-  
+  "block.rosestrades.special_rose": "Rosa speciale",
+  "block.rosestrades.bouquet": "Mazzo",
+
   "message.rosestrades.rose_count": "Rose totali: %s",
-  "message.rosestrades.cant_place": "Non puoi piazzare questa rosa in modalità sopravvivenza.",
-  "message.rosestrades.break_special_rose": "Hai distrutto %s rose.",
-  "message.rosestrades.offset_hight": "Offset troppo grande, viene mostrata invece la top 5.",
+  "message.rosestrades.cant_place": "Non puoi piazzare questa rosa in sopravvivenza.",
+  "message.rosestrades.break_special_rose": "Hai rotto %s rose.",
+  "message.rosestrades.offset_hight": "Offset troppo grande, mostrando invece i primi 5.",
   "message.rosestrades.ranking": "=== Classifica delle Rose ( %s - %s ) ===",
-  "message.rosestrades.rank": "La tua posizione: #%s con %s rose.",
+  "message.rosestrades.rank": "Il tuo rango: #%s con %s rose.",
 
   "message.rosestrades.spend.success": "§aHai speso %s rose e ricevuto i tuoi oggetti!",
-  "message.rosestrades.spend.fail": "§cNon hai abbastanza rose per spenderne %s."
+  "message.rosestrades.spend.fail": "§cNon hai abbastanza rose per spendere %s.",
+
+  "key.rosestrades.open_menu": "Apri Menu",
+  "category.rosestrades.keys": "Commercio di Rose",
+
+  "rosestrades.menu.shop": "Negozio di cosmetici",
+  "rosestrades.menu.inventory": "Inventario del giocatore",
+  "rosestrades.menu.more.welcome": "Benvenuto in Roses Trades, una mod di Minecraft creata da Firelack. 🌹",
+  "rosestrades.menu.more.focus": "Questa mod si concentra sulla raccolta e sul commercio di rose speciali per sbloccare cosmetici unici.",
+  "rosestrades.menu.more.spawn": "Le rose appaiono in biomi specifici e aumentano il tuo contatore di rose invece di cadere come oggetti.",
+  "rosestrades.menu.more.menu_features": "Il menu ti permette di tenere traccia del contatore di rose, generare rose fisiche, creare mazzi e accedere al negozio e all'inventario di cosmetici.",
+  "rosestrades.menu.more.future": "Le future funzionalità includono acquistare cosmetici, equipaggiarli, condividere cosmetici personalizzati in multiplayer e tracciare obiettivi.",
+  "rosestrades.menu.roses_menu": "Menu delle Rose",
+  "rosestrades.menu.amount": "Quantità",
+  "rosestrades.menu.give_roses": "Dare Rose",
+  "rosestrades.menu.search": "Cerca",
+  "rosestrades.menu.page.shop": "Negozio",
+  "rosestrades.menu.page.inventory": "Inventario",
+  "rosestrades.menu.page.more": "Altre Info",
+  "rosestrades.menu.page.import": "Importa",
+
+  "rosestrades.menu.purchase.already": "Già acquistato: %s",
+  "rosestrades.menu.purchase.price": "%s (%s rose)",
+  "rosestrades.menu.inventory.nequipped": "Non equipaggiato: %s",
+  "rosestrades.menu.inventory.equipped": "Equipaggiato: %s",
+  "rosestrades.menu.more.github": "Repository GitHub",
+  "rosestrades.menu.import.info": "Funzionalità futura: Importare cosmetici personalizzati da un file JSON.",
+  "rosestrades.menu.signature": "di Firelack"
 }
