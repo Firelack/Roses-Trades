@@ -109,7 +109,10 @@ This mod is still in development and is not yet available for installation.
 
 ### 🌍 Multiplayer & Trading
 
-- [ ] Add a "gift" or "rose sending" system between players.
+- [ ] Add a "rose sending" system between players.
+  - [ ] New NBT roses received (roses - received can be send only)
+  - [ ] Decreased received and roses each time (buy, give)
+  - [ ] Can send to one player or each ?
 - [ ] These gift could not be send back or to an other player.
 
 ### ☁️ Cosmetics Sharing & Customization
