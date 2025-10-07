@@ -110,10 +110,11 @@ This mod is still in development and is not yet available for installation.
 ### 🌍 Multiplayer & Trading
 
 - [ ] Add a "rose sending" system between players.
-  - [ ] New NBT roses received (roses - received can be send only)
-  - [ ] Decreased received and roses each time (buy, give)
-  - [ ] Can send to one player or each ?
-- [ ] These gift could not be send back or to an other player.
+  - [ ] New NBT roses received (roses - received can be send only).
+  - [ ] Decreased received and roses each time (buy, give).
+  - [ ] Can send to one player multiple or unique rose.
+  - [ ] Can send to all player online one or more roses.
+- [ ] These gift could not be send back or to an other player using the new NBT.
 
 ### ☁️ Cosmetics Sharing & Customization
 
@@ -135,4 +136,4 @@ This mod is still in development and is not yet available for installation.
 - [ ] Add Roses boss mob.
 - [ ] Create a structure for spawn Roses boss.
 - [ ] Add system to invoke the boss.
-- [ ] Incremente player who kill the boss counter (divide by 2 each time).
+- [ ] Incremente player counter who kill the boss counter (divide by 2 each time).
